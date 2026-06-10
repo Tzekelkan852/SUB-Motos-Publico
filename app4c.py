@@ -181,13 +181,18 @@ if modo == "Ficha Técnica":
 
     if "URL" in df.columns:
 
-        video_url = str(fila["URL"]).strip()
+        if pd.notna(fila["URL"]):
 
-        if video_url:
+            video_url = str(fila["URL"]).strip()
 
-            st.subheader("🎥 Video de demostración")
+            if (
+                video_url != ""
+                and video_url.lower() != "nan"
+            ):
 
-            st.video(video_url)
+                st.subheader("🎥 Video de demostración")
+
+                st.video(video_url)
 
 # =========================
 # VIDEO 2
@@ -199,11 +204,12 @@ if modo == "Ficha Técnica":
 
             video_url2 = str(fila["URL2"]).strip()
 
-            if video_url2 != "":
+            if (
+                video_url2 != ""
+                and video_url2.lower() != "nan"
+            ):
 
                 st.subheader("🎥 Video adicional")
-
-                #st.write("DEBUG:", repr(video_url))
 
                 st.video(video_url2)
 
