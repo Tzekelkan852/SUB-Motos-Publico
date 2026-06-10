@@ -69,7 +69,14 @@ df = df.rename(columns={
     "Vmax": "Velocidad Maxima"
 })
 
-df["Modelo"] = df["Modelo"].astype(str).str.strip()
+#df["Modelo"] = df["Modelo"].astype(str).str.strip()
+
+df["Modelo"] = (
+    df["Modelo"]
+    .fillna("")
+    .astype(str)
+    .str.strip()
+)
 
 # =========================
 # CATEGORÍAS
@@ -230,7 +237,18 @@ if modo == "Ficha Técnica":
 
 elif modo == "Comparar":
 
-    modelos = sorted(df["Modelo"].unique())
+    #modelos = sorted(df["Modelo"].unique())
+    modelos = sorted(
+        [
+            m
+            for m in df["Modelo"]
+            .fillna("")
+            .astype(str)
+            .str.strip()
+            .unique()
+            if m
+        ]
+    )
 
     modelo1 = st.selectbox(
         "Moto 1",
