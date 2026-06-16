@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
 import os
+import matplotlib.pyplot as plt
+import numpy as np
 
 # =========================
 # CONFIGURACIÓN
@@ -66,7 +68,9 @@ df = df.rename(columns={
     "A¤o": "Año",
     "Transmisi¢n": "Transmisión",
     "Autonomia (Km)": "Autonomía (Km)",
-    "Vmax": "Velocidad Maxima"
+    "Vmax (km/h)": "Velocidad Maxima (km/h)",
+    "Pesomax (kg)": "Peso Máximo Soportado (kg)",
+    "Enfriam.": "Enfriamiento"
 })
 
 #df["Modelo"] = df["Modelo"].astype(str).str.strip()
@@ -94,10 +98,10 @@ categorias = {
     "Motor y Rendimiento": [
         "C. Motor",
         "Cilindros",
-        "Potencia",
-        "Torque",
-        "Velocidad Maxima",
-        "Enfriam.",
+        "Potencia (HP)",
+        "Torque (Nm)",
+        "Velocidad Maxima (km/h)",
+        "Enfriamiento",
         "Transmisión"
     ],
 
@@ -114,7 +118,7 @@ categorias = {
     ],
 
     "Capacidad": [
-        "Pesomax",
+        "Peso Máximo Soportado (kg)",
         "Prueba"
     ]
 }
@@ -328,9 +332,110 @@ elif modo == "Comparar":
 
     comparacion = pd.DataFrame(filas)
 
+
+    max_hp = df["Potencia (HP)"].max() #normalizamos todos los resultado de HP de manera consistente
+
     st.dataframe(
         comparacion,
         use_container_width=True,
         hide_index=True
     )
 
+    st.header("📊 Comparación Visual")
+    
+    
+    metricas = [
+        "Potencia (HP)",
+        "Torque (Nm)",
+        "Velocidad Maxima (km/h)",
+        "Consumo (km/L)",
+        "Autonomía (Km)",
+        "Peso Máximo Soportado (kg)"
+    ]
+
+    #normalizamos################################
+
+    valores1 = []
+    valores2 = []
+
+    for metrica in metricas:
+
+        maximo = pd.to_numeric(
+            df[metrica],
+            errors="coerce"
+        ).max()
+
+        v1 = pd.to_numeric(
+            fila1[metrica],
+            errors="coerce"
+        )
+
+        v2 = pd.to_numeric(
+            fila2[metrica],
+            errors="coerce"
+        )
+
+        valores1.append(v1 / maximo)
+        valores2.append(v2 / maximo)
+
+    N = len(metricas) #creamos el radar############
+
+    angulos = np.linspace(
+        0,
+        2 * np.pi,
+        N,
+        endpoint=False
+    ).tolist()
+
+    valores1 += valores1[:1]
+    valores2 += valores2[:1]
+
+    angulos += angulos[:1]
+
+    fig, ax = plt.subplots(
+        figsize=(8,8),
+        subplot_kw=dict(polar=True)
+    )
+
+    ax.plot(
+        angulos,
+        valores1,
+        linewidth=3,
+        label=modelo1
+    )
+
+    ax.fill(
+        angulos,
+        valores1,
+        alpha=0.25
+    )
+
+    ax.plot(
+        angulos,
+        valores2,
+        linewidth=3,
+        label=modelo2
+    )
+
+    ax.fill(
+        angulos,
+        valores2,
+        alpha=0.25
+    )
+
+    ax.set_xticks(angulos[:-1])
+
+    ax.set_xticklabels([
+        "HP",
+        "Torque",
+        "V. Máx",
+        "Consumo",
+        "Autonomía",
+        "Carga"
+    ])
+
+    ax.set_ylim(0, 1)
+
+    ax.legend()
+
+    st.pyplot(fig)

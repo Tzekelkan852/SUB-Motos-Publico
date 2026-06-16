@@ -1,17 +1,10 @@
-Marca,Modelo,SKU,Tipo,Año,C. Motor,Cilindros,Potencia,Torque,Vmax,Tanque (L),Pesomax,Enfriam.,Transmisi¢n,F. Trasero,F. Delantero,Arranque,Consumo (km/L),Autonomia (Km),URL,URL2,Prueba
-Bajaj,PULSAR N125 (2026),5014191706,Moto Deportiva,2026,125 (124.6) cc.,1,12 HP / 8500 RPM,11 NM / 6000 RPM,100 km/h,9.2,180 kg,Aire,Manual,Tambor,Disco Sencillo,Pedal y electrico,60,552,https://www.youtube.com/watch?v=1wQnLsKi-Ow,https://www.youtube.com/watch?v=HHKzicNglrI,0
-Bajaj,PULSAR N250 CARB (2026),5014432223,Moto Deportiva,2026,250 (249.07) cc.,1,24 HP / 8750 RPM,21.5 NM / 6500 RPM,130 km/h,14,180 kg,Aceite,Manual,Disco Sencillo,Disco Sencillo,Electrico,35,490,https://www.youtube.com/watch?v=elnSAP7yxb4,https://www.youtube.com/watch?v=Bus2Pu0kdFE&t=1014s,0
-MB Motos,TEKKEN 250 R (2026),5014156951,Moto Doble P.,2026,250 cc.,1,16.8 HP / 7500 RPM,27 NM / 6000 RPM,110 km/h,12.5,150 kg,Aceite y Aire Forzado,Manual,Disco Ventilado,Disco Ventilado,Electrico,20,250,https://www.youtube.com/watch?v=NUcwxPSZkmw,https://www.youtube.com/shorts/5gYxMvlvIH0,0
-MB Motos,TEKKEN 300 PE (2026),5015073588,Motocicleta Urbana,2026,300cc.,1,23 Hp / 8500 RPM,32.5 NM / 6500 RPM,125 km/h,12.5,150 kg,Aire Forzado y Radiador de aceite,Manual,Disco Ventilado,Disco Ventilado Doble Pistón,Electrico,18,225,https://www.youtube.com/watch?v=lLuAif3TwgI,https://www.youtube.com/watch?v=Y9tZU9klhr0,0
-Suzuki,DR150 (2026),5014712439,Moto Doble P.,2026,150 (149) cc.,1,12.2 HP / 8000 RPM,12.7 NM / 6500 RPM,120 km/h,12.5,210 kg,Aire,Cadena,Tambor,ABS,Electrico,35,437.5,https://www.youtube.com/watch?v=EGP2ViNXiJU,https://www.youtube.com/watch?v=6--tOgxqgfQ,0
-Suzuki,GIXXER 250 (2026),5014751990,Moto Deportiva,2026,250 (249) cc.,1,26.1 HP,22.6 NM / 7500 RPM,150 km/h,12,210 kg,Aceite,Cadena,Ventilado ABS,Ventilado ABS,Electrico,33.3,399.6,https://www.youtube.com/watch?v=RerGdIdc424,https://www.youtube.com/watch?v=lMA803y9g2o,0
-Suzuki,GIXXER SF 250 (2026),5014752015,Moto Deportiva,2026,250 (249) cc.,1,,,150 km/h,12,210 kg,Aceite,Cadena,ABS,ABS,Electrico,30,360,https://www.youtube.com/watch?v=RerGdIdc424,https://www.youtube.com/watch?v=yP-ysr2Re6c,0
-Veloci,VELO RAZZER,5014444744,Moto Deportiva,2026,220 cc.,1,,,110 km/h,14.5,150 kg,Aire,Manual,Tambor,Disco Ventilado,Pedal y electrico,38,551,,,0
-Veloci,VELO XEVERUS,5014444752,Moto Doble P.,2026,330 cc.,1,22 HP / 8000 RPM,,95 km/h,10,150 kg,Aire,Manual,Disco Ventilado,Disco Ventilado,Pedal y electrico,34,340,,,0
-,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,
+Marca,Modelo,SKU,Tipo,Año,C. Motor,Cilindros,Potencia (HP),Potencia RPM,Torque (Nm),Torque RPM,Vmax (km/h),Tanque (L),Pesomax (kg),Enfriam.,Transmisi¢n,F. Trasero,F. Delantero,Arranque,Consumo (km/L),Autonomia (Km),URL,URL2,Prueba
+Bajaj,PULSAR N125 (2026),5014191706,Moto Deportiva,2026,125 (124.6) cc.,1,12,8500,11,6000,100,9.2,180,Aire,Manual,Tambor,Disco Sencillo,Pedal y electrico,60,552,https://www.youtube.com/watch?v=1wQnLsKi-Ow,https://www.youtube.com/watch?v=HHKzicNglrI,0
+Bajaj,PULSAR N250 CARB (2026),5014432223,Moto Deportiva,2026,250 (249.07) cc.,1,24,8750,21.5,6500,130,14,180,Aceite,Manual,Disco Sencillo,Disco Sencillo,Electrico,35,490,https://www.youtube.com/watch?v=elnSAP7yxb4,https://www.youtube.com/watch?v=Bus2Pu0kdFE&t=1014s,0
+MB Motos,TEKKEN 250 R (2026),5014156951,Moto Doble P.,2026,250 cc.,1,16.8,7500,27,6000,110,12.5,150,Aceite y Aire Forzado,Manual,Disco Ventilado,Disco Ventilado,Electrico,20,250,https://www.youtube.com/watch?v=NUcwxPSZkmw,https://www.youtube.com/shorts/5gYxMvlvIH0,0
+MB Motos,TEKKEN 300 PE (2026),5015073588,Motocicleta Urbana,2026,300cc.,1,23,8500,32.5,6500,125,12.5,150,Aire Forzado y Radiador de aceite,Manual,Disco Ventilado,Disco Ventilado Doble Pistón,Electrico,18,225,https://www.youtube.com/watch?v=lLuAif3TwgI,https://www.youtube.com/watch?v=Y9tZU9klhr0,0
+Suzuki,DR150 (2026),5014712439,Moto Doble P.,2026,150 (149) cc.,1,12.2,8000,12.7,6500,120,12.5,210,Aire,Cadena,Tambor,ABS,Electrico,35,437.5,https://www.youtube.com/watch?v=EGP2ViNXiJU,https://www.youtube.com/watch?v=6--tOgxqgfQ,0
+Suzuki,GIXXER 250 (2026),5014751990,Moto Deportiva,2026,250 (249) cc.,1,26.1,,22.6,7500,150,12,210,Aceite,Cadena,Ventilado ABS,Ventilado ABS,Electrico,33.3,399.6,https://www.youtube.com/watch?v=RerGdIdc424,https://www.youtube.com/watch?v=lMA803y9g2o,0
+Suzuki,GIXXER SF 250 (2026),5014752015,Moto Deportiva,2026,250 (249) cc.,1,,,,,150,12,210,Aceite,Cadena,ABS,ABS,Electrico,30,360,https://www.youtube.com/watch?v=RerGdIdc424,https://www.youtube.com/watch?v=yP-ysr2Re6c,0
+Veloci,VELO RAZZER,5014444744,Moto Deportiva,2026,220 cc.,1,,,,,110,14.5,150,Aire,Manual,Tambor,Disco Ventilado,Pedal y electrico,38,551,,,0
+Veloci,VELO XEVERUS,5014444752,Moto Doble P.,2026,330 cc.,1,22,8000,,,95,10,150,Aire,Manual,Disco Ventilado,Disco Ventilado,Pedal y electrico,34,340,,,0
