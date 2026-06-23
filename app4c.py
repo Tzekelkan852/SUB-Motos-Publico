@@ -142,7 +142,7 @@ st.markdown(
 
 modo = st.radio(
     "Selecciona una opción",
-    ["Ficha Técnica", "Comparar"]
+    ["Ficha Técnica", "Comparar", "Guía del Vendedor"]
 )
 
 # =========================
@@ -173,7 +173,7 @@ if modo == "Ficha Técnica":
 # IMAGEN
 # =========================
 
-    ruta_imagen = os.path.join("img", f"{modelo}.jpg")
+    ruta_imagen = os.path.join("resultado", f"{modelo}.jpg")
 
     if os.path.exists(ruta_imagen):
 
@@ -283,7 +283,7 @@ elif modo == "Comparar":
         st.subheader(modelo1)
 
         ruta1 = os.path.join(
-            "img",
+            "resultado",
             f"{modelo1}.jpg"
         )
 
@@ -299,7 +299,7 @@ elif modo == "Comparar":
         st.subheader(modelo2)
 
         ruta2 = os.path.join(
-            "img",
+            "resultado",
             f"{modelo2}.jpg"
         )
 
@@ -439,3 +439,248 @@ elif modo == "Comparar":
     ax.legend()
 
     st.pyplot(fig)
+
+
+################## TERCER MODO #####################
+
+elif modo == "Guía del Vendedor":
+
+    st.header("🎓 Guía del Vendedor")
+
+    with st.expander("¿Qué es la potencia?"):
+
+        st.write("""
+        La potencia indica la capacidad del motor para realizar
+        trabajo en un determinado tiempo.
+
+        En las motocicletas suele expresarse en Caballos de Fuerza
+        (HP).
+
+        Una mayor potencia generalmente significa:
+
+        • Mejor aceleración.
+        • Mayor velocidad máxima.
+        • Mejor desempeño en carretera.
+
+        Mientras el torque representa la fuerza de empuje,
+        la potencia representa qué tan rápido puede utilizarse
+        esa fuerza.
+
+        Una forma sencilla de explicarlo a un cliente es:
+
+        "El torque ayuda a arrancar y subir pendientes;
+        la potencia ayuda a alcanzar y mantener velocidades altas."
+        """)
+
+    with st.expander("¿Qué son los caballos de fuerza (HP)?"):
+
+        st.write("""
+        Los HP (Horse Power) indican la potencia del motor.
+
+        La potencia representa qué tan rápido puede realizar trabajo
+        el motor.
+
+        Un mayor número de HP generalmente significa:
+
+        • Mejor aceleración.
+        • Mayor velocidad máxima.
+        • Mejor desempeño en carretera.
+
+        Es una de las especificaciones más importantes para
+        comparar motocicletas.
+        """)
+
+    with st.expander("¿Por qué la potencia se alcanza a ciertas RPM?"):
+
+        st.write("""
+        El motor no produce su máxima potencia todo el tiempo.
+
+        Por ejemplo:
+
+        24 HP @ 8,000 RPM
+
+        significa que el motor entrega 24 HP cuando gira
+        a 8,000 revoluciones por minuto.
+
+        Antes o después de ese punto la potencia suele ser menor.
+
+        Esto ayuda a entender cómo se comporta la moto
+        durante la conducción.
+        """)
+
+    with st.expander("¿Qué es el torque?"):
+
+        st.write("""
+        El torque es la fuerza de empuje que genera el motor.
+
+        Un torque elevado ayuda en:
+
+        • Arranques rápidos.
+        • Subidas.
+        • Llevar pasajero o carga.
+        • Recuperaciones de velocidad.
+
+        Mientras la potencia ayuda a alcanzar velocidad,
+        el torque ayuda a mover la motocicleta con fuerza.
+        """)
+
+    with st.expander("¿Por qué el torque y la potencia tienen RPM diferentes?"):
+
+        st.write("""
+        Es normal que una motocicleta alcance su torque máximo
+        antes que su potencia máxima.
+
+        El torque suele aparecer a RPM medias.
+
+        La potencia continúa aumentando mientras el motor
+        sigue girando más rápido.
+
+        Por eso una ficha técnica puede mostrar:
+
+        • Torque máximo a 6,500 RPM
+        • Potencia máxima a 8,000 RPM
+
+        Esto no significa que exista un error,
+        sino que el motor entrega características distintas
+        según el régimen de giro.
+        """)
+
+    with st.expander("¿Qué es la cilindrada (C. Motor)?"):
+
+        st.write("""
+        La cilindrada es el volumen total de los cilindros del motor,
+        normalmente expresado en centímetros cúbicos (cc).
+
+        En general:
+
+        • Más cilindrada = más potencia y velocidad.
+        • Menos cilindrada = mejor consumo de combustible.
+
+        Ejemplo:
+        Una moto de 125 cc suele enfocarse en economía,
+        mientras que una de 250 cc ofrece mejor desempeño.
+        """)
+
+    with st.expander("¿Qué son los cilindros?"):
+
+        st.write("""
+        Los cilindros son las cámaras donde ocurre la combustión.
+
+        Una moto con más cilindros suele tener:
+
+        • Funcionamiento más suave.
+        • Mayor potencia.
+        • Mejor desempeño a altas RPM.
+
+        Sin embargo, también puede consumir más combustible
+        y requerir mayor mantenimiento.
+        """)
+
+    with st.expander("¿Qué es la velocidad máxima (Vmax)?"):
+
+        st.write("""
+        Es la mayor velocidad que la motocicleta puede alcanzar
+        en condiciones ideales.
+
+        La velocidad real puede variar dependiendo de:
+
+        • Peso del conductor.
+        • Pendientes.
+        • Viento.
+        • Estado de la carretera.
+
+        Debe tomarse como una referencia comparativa.
+        """)
+
+    with st.expander("¿Qué significa el enfriamiento?"):
+
+        st.write("""
+        El sistema de enfriamiento evita que el motor
+        se sobrecaliente.
+
+        Tipos comunes:
+
+        • Aire
+        • Aceite
+        • Líquido
+
+        Los sistemas por líquido suelen controlar mejor
+        la temperatura en trayectos largos y uso intensivo.
+        """)
+
+    with st.expander("¿Qué es la transmisión?"):
+
+        st.write("""
+        La transmisión envía la potencia del motor
+        hacia la rueda trasera.
+
+        Tipos comunes:
+
+        • Manual
+        • Semiautomática
+        • Automática
+
+        La elección depende del estilo de conducción
+        y experiencia del usuario.
+        """)
+
+    with st.expander("¿Qué significa el consumo (km/L) o rendimiento?"):
+
+        st.write("""
+        Indica cuántos kilómetros puede recorrer la motocicleta
+        con un litro de combustible.
+
+        Un número más alto significa mejor rendimiento
+        y menor gasto de gasolina.
+
+        Ejemplo:
+
+        40 km/L consume más combustible que una moto
+        que alcanza 55 km/L.
+        """)
+
+    with st.expander("¿Qué es la autonomía?"):
+
+        st.write("""
+        La autonomía es la distancia aproximada que puede
+        recorrer la motocicleta con un tanque lleno.
+
+        Se calcula considerando:
+
+        • Capacidad del tanque.
+        • Consumo de combustible.
+
+        Una mayor autonomía permite realizar recorridos
+        más largos sin necesidad de repostar.
+        """)
+
+    with st.expander("¿Qué tipos de frenos existen?"):
+
+        st.write("""
+        Los frenos permiten reducir la velocidad
+        o detener la motocicleta.
+
+        Los más comunes son:
+
+        • Disco
+        • Tambor
+
+        Generalmente los frenos de disco ofrecen
+        mejor capacidad de frenado y disipación de calor.
+        """)
+
+    with st.expander("¿Qué sistemas de arranque existen?"):
+
+        st.write("""
+        El arranque es el método utilizado para encender
+        la motocicleta.
+
+        Los más comunes son:
+
+        • Eléctrico
+        • Pedal (kick)
+        • Combinado
+
+        El arranque eléctrico suele ser el más cómodo
+        para el usuario.
+        """)
