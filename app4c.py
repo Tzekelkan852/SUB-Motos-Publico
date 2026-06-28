@@ -1,67 +1,183 @@
+#region IMPORTACIONES
+###################################################################################################################################################################
+###################################################################################################################################################################
+
+
+# IMPORTACIONES
+
+# En esta sección se cargan todas las librerías que utilizará
+# la aplicación web.
+
+# - Streamlit: Construcción de la interfaz gráfica, es nuetro Jupyter o Spyder por así decirlo, nuestra plataforma de trabajo.
+# - Pandas: Lectura y manipulación de la base de datos en nuestro caso el CSV construido.
+# - os: Manejo de archivos y rutas (imágenes, carpetas, etc.).
+# - Matplotlib: Creación de gráficas, específicamente el gráfico de radar.
+# - NumPy: Operaciones matemáticas.
+# - Scikit-Learn: Para recomendar motocicletas similares mediante K-Nearest Neighbors, transformando características en vectores
+# entre los cuales se pueden medir distancias.
+
+
 import streamlit as st
 import pandas as pd
 import os
 import matplotlib.pyplot as plt
 import numpy as np
 
-# =========================
-# CONFIGURACIÓN
-# =========================
+from sklearn.preprocessing import StandardScaler
+from sklearn.neighbors import NearestNeighbors
+###################################################################################################################################################################
+###################################################################################################################################################################
+# endregion
+
+#region  CONFIGURACIÓN DE LA APLICACIÓN Y CONSTANTES
+###################################################################################################################################################################
+###################################################################################################################################################################
+
 
 st.set_page_config(
-    page_title="Catálogo de Motocicletas",
-    layout="wide"
+    page_title="Catálogo Inteligente de Motos",
+    layout="wide",
+    page_icon="🏍️"
 )
+
+#CONSTANTES
+CARPETA_IMAGENES = "resultado"
+
+###################################################################################################################################################################
+###################################################################################################################################################################
+#endregion
+
+#region  ENCABEZADO DE LA APLICACIÓN
+###################################################################################################################################################################
+###################################################################################################################################################################
+
+
+# Construye la parte superior de la interfaz:
+# - Título.
+# - Descripción, el st.caption.
+# - Métricas principales, como lo son los modelos disponibles, si está operativo el módulo de las comparaciones, marcas y guía
+
+
+st.title("🏍️ Catálogo Inteligente de Motocicletas")
+
+st.caption(
+    "Consulta, comparación y recomendación de motocicletas para apoyar la toma de decisiones."
+)
+
+st.divider()
+
+# Métricas principales
+col1, col2, col3, col4 = st.columns(4)
+
+with col1:
+    st.metric(
+        label="Modelos",
+        value="17",
+        delta="🟡 En crecimiento",
+        delta_color="normal"
+    )
+
+with col2:
+    st.metric(
+        label="Marcas",
+        value="4"
+    )
+
+with col3:
+    st.metric(
+        label="Comparador",
+        value="Activo",
+        delta="🟢 Funcional",
+        delta_color="normal"
+    )
+
+with col4:
+    st.metric(
+        label="Guía",
+        value="Activo",
+        delta="🟢 Funcional",
+        delta_color="normal"
+    )
+
+st.divider()
+###################################################################################################################################################################
+###################################################################################################################################################################
+#endregion
+
+#region  ESTILOS CSS
+###################################################################################################################################################################
+###################################################################################################################################################################
+
+# Define la apariencia visual de toda la aplicación:
+# - Colores
+# - Tipografías
+# - Expanders
+# - Tarjetas
+# - Componentes personalizados
+
+
 st.markdown("""
 <style>
 
 /* Fondo principal */
 .stApp {
     background-color: #3D2740;
-}
-
-/* Texto general */
-html, body, [class*="css"] {
     color: white;
 }
 
-/* Títulos */
 h1, h2, h3 {
     color: #D94AA7 !important;
 }
 
-/* Expander */
 .streamlit-expanderHeader {
     color: #D94AA7 !important;
     font-weight: bold;
 }
 
-/* Selectbox */
-div[data-baseweb="select"] {
-    color: white;
-}
-
-/* Labels */
+div[data-baseweb="select"],
 label {
     color: white !important;
 }
 
-/* Texto dentro de expanders */
-p {
-    color: white;
+/* TARJETAS */
+.tarjeta-moto {
+    background: #533658;
+    border: 2px solid #D94AA7;
+    border-radius: 18px;
+    box-shadow: 0 6px 18px rgba(0,0,0,.35);
+    transition: .25s;
+}
+
+.tarjeta-moto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,.45);
+}
+
+.tarjeta-titulo {
+    color: #D94AA7;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.tarjeta-info b {
+    color: #F7B7E5;
 }
 
 </style>
+            
+
 """, unsafe_allow_html=True)
+###################################################################################################################################################################
+###################################################################################################################################################################
+#endregion
 
+#region CARGA DE DATOS Y PREPARACION DELOS MISMOS
+###################################################################################################################################################################
+###################################################################################################################################################################
 
-# =========================
-# CARGAR DATOS
-# =========================
-
-df = pd.read_csv("Motos.csv", encoding="cp1252")
-
-df.columns = df.columns.str.strip()
+df = pd.read_csv("Motos.csv", encoding="cp1252") #codificación de windows en español, como utf-8 y latini 
+df.columns = df.columns.str.strip() #limpieza de los nombres de las columnas como espacios invisibles.
 
 # Correcciones de nombres
 df = df.rename(columns={
@@ -73,8 +189,7 @@ df = df.rename(columns={
     "Enfriam.": "Enfriamiento"
 })
 
-#df["Modelo"] = df["Modelo"].astype(str).str.strip()
-
+#Limpiamos la columna modelo
 df["Modelo"] = (
     df["Modelo"]
     .fillna("")
@@ -82,9 +197,82 @@ df["Modelo"] = (
     .str.strip()
 )
 
-# =========================
-# CATEGORÍAS
-# =========================
+###################################################################################################################################################################
+###################################################################################################################################################################
+#endregion
+
+#region FUNCIONES
+###################################################################################################################################################################
+###################################################################################################################################################################
+def motos_similares(df, modelo, n=5):
+    
+    #Se definen las variables importantes, estas variables vas a ser las responsables directas de la comparación
+    #y recomendacion de motos "similares" a la seleccionada por el cliente y que el asesor puede 
+    #consultar en busqueda de mayores opciones. Estas son elegidas por su sencilla cuatificación.
+    #Cada moto tendrá su propio conjunto de valores númericos como una huella de identidad.
+    variables = [   
+        "C. Motor",
+        "Potencia (HP)",
+        "Torque (Nm)",
+        "Velocidad Maxima (km/h)",
+        "Tanque (L)",
+        "Autonomía (Km)"
+    ]
+
+    datos = df.copy() #copiamos el df para no modificar el original
+
+    for col in variables:
+
+        #convertimos texto en numero
+        datos[col] = pd.to_numeric(
+            datos[col],
+            errors="coerce"
+        )
+        #conveirte errores en Nan y los rellena con la mediana
+        datos[col] = datos[col].fillna(
+            datos[col].median()
+        )
+
+    #Esto es una normalización de los datos
+    scaler = StandardScaler()
+    X = scaler.fit_transform(
+        datos[variables]
+    )
+
+    #con los datos normalizados busca los vecinos más cercanos en este espacio matemático construido con
+    #las "huellas digitales" de cada moto
+    nn = NearestNeighbors(
+        n_neighbors=n + 1 #el n+1 es porque se incluye así misma como su propio vecino
+    )
+    nn.fit(X)
+
+    #Ahora encontramos la moto seleccionada y su posición en este espacio
+    indice = datos[
+        datos["Modelo"] == modelo
+    ].index[0]
+    posicion = datos.index.get_loc(indice)
+
+    #esta instrucción mide las distancias para encontrar las más cercanas
+    distancias, indices = nn.kneighbors(
+        [X[posicion]]
+    )
+
+    #excluyes la original
+    similares = datos.iloc[
+        indices[0][1:]#    indices[0][0] es la misma moto
+    ]
+
+    return similares #devuelve el df con motos similares
+###################################################################################################################################################################
+###################################################################################################################################################################
+#endregion
+
+#region CATEGORIAS
+###################################################################################################################################################################
+###################################################################################################################################################################
+
+#Se trata de los rubros principales bajo los cuales vamos a identificar las motos, estos definen la ficha técnica pero no solo se limitan a esto, pues también
+#permiten cambiar el nombre de las columnas por uno más adecuado para el entendimiento del lector, o corregir algunos errores de la base de datos.
 
 categorias = {
 
@@ -122,31 +310,20 @@ categorias = {
         "Prueba"
     ]
 }
-
-# =========================
-# TÍTULO
-# =========================
-
-st.markdown(
-    """
-    <h1 style='color:#D94AA7;'>
-        🏍️ Catálogo de Motocicletas
-    </h1>
-    """,
-    unsafe_allow_html=True
-)
-
+###################################################################################################################################################################
+###################################################################################################################################################################
+#endregion
 # =========================
 # MODO
 # =========================
 
 modo = st.radio(
     "Selecciona una opción",
-    ["Ficha Técnica", "Comparar", "Guía del Vendedor"]
+    ["Ficha Técnica", "Comparar", "Guía del Vendedor", "Acerca del proyecto"]
 )
 
 # =========================
-# SELECTOR
+# SELECTOR PRIMER MODO FICHA
 # =========================
 
 if modo == "Ficha Técnica":
@@ -173,7 +350,7 @@ if modo == "Ficha Técnica":
 # IMAGEN
 # =========================
 
-    ruta_imagen = os.path.join("resultado", f"{modelo}.jpg")
+    ruta_imagen = os.path.join(CARPETA_IMAGENES, f"{modelo}.jpg")
 
     if os.path.exists(ruta_imagen):
 
@@ -224,6 +401,7 @@ if modo == "Ficha Técnica":
 
     st.header("📋 Ficha Técnica")
 
+
     for categoria, columnas in categorias.items():
 
         with st.expander(categoria, expanded=True):
@@ -244,6 +422,63 @@ if modo == "Ficha Técnica":
                             """,
                             unsafe_allow_html=True
                         )
+
+    # ====================================================================================================PRUEBA
+
+
+# =========================
+# MOTOS SIMILARES
+# =========================
+
+    st.header("🤝 También te puede interesar")
+
+    similares = motos_similares(
+        df,
+        modelo,
+        n=4
+    )
+
+    # Crear una columna por cada recomendación
+    columnas = st.columns(len(similares))
+
+    for col, (_, moto) in zip(columnas, similares.iterrows()):
+
+        modelo_sim = str(moto["Modelo"]).strip()
+
+        ruta_img = os.path.join(CARPETA_IMAGENES, f"{modelo_sim}.jpg")
+
+        with col:
+
+            if os.path.exists(ruta_img):
+
+                st.image(
+                    ruta_img,
+                    use_container_width=True
+                )
+
+            st.markdown(f"""
+            <div class="tarjeta-moto">
+
+            <div class="tarjeta-titulo">
+            🏍️ {modelo_sim}
+            </div>
+
+            <div class="tarjeta-texto">
+
+            <b>Marca:</b> {moto['Marca']}<br>
+
+            <b>Motor:</b> {moto['C. Motor']} cc<br>
+
+            <b>Potencia:</b> {moto['Potencia (HP)']} HP<br>
+
+            <b>Torque:</b> {moto['Torque (Nm)']} Nm
+
+            </div>
+
+            </div>
+            """, unsafe_allow_html=True)
+    
+    #    ====================================================================================================
 
 elif modo == "Comparar":
 
@@ -283,7 +518,7 @@ elif modo == "Comparar":
         st.subheader(modelo1)
 
         ruta1 = os.path.join(
-            "resultado",
+            CARPETA_IMAGENES,
             f"{modelo1}.jpg"
         )
 
@@ -299,7 +534,7 @@ elif modo == "Comparar":
         st.subheader(modelo2)
 
         ruta2 = os.path.join(
-            "resultado",
+            CARPETA_IMAGENES,
             f"{modelo2}.jpg"
         )
 
@@ -397,46 +632,100 @@ elif modo == "Comparar":
         subplot_kw=dict(polar=True)
     )
 
+    # =========================
+    # MOTO 1 (VERDE)
+    # =========================
+
     ax.plot(
         angulos,
         valores1,
         linewidth=3,
+        color="limegreen",
         label=modelo1
     )
 
     ax.fill(
         angulos,
         valores1,
-        alpha=0.25
+        color="limegreen",
+        alpha=0.35
     )
+
+    # =========================
+    # MOTO 2 (ROJO)
+    # =========================
 
     ax.plot(
         angulos,
         valores2,
         linewidth=3,
+        color="red",
         label=modelo2
     )
 
     ax.fill(
         angulos,
         valores2,
-        alpha=0.25
+        color="red",
+        alpha=0.35
     )
+
+    # =========================
+    # ETIQUETAS
+    # =========================
 
     ax.set_xticks(angulos[:-1])
 
-    ax.set_xticklabels([
-        "HP",
-        "Torque",
-        "V. Máx",
-        "Consumo",
-        "Autonomía",
-        "Carga"
-    ])
+    ax.set_xticklabels(
+        [
+            "HP",
+            "Torque",
+            "V. Máx",
+            "Consumo",
+            "Autonomía",
+            "Carga"
+        ],
+        fontsize=14,      # tamaño letra
+        fontweight="bold"
+    )
+
+    # =========================
+    # ESCALA
+    # =========================
 
     ax.set_ylim(0, 1)
 
-    ax.legend()
+    # tamaño de números radiales
+    ax.tick_params(
+        axis='y',
+        labelsize=12
+    )
+
+    # =========================
+    # TÍTULO
+    # =========================
+
+    ax.set_title(
+        "Comparación de Desempeño",
+        fontsize=18,
+        fontweight="bold",
+        pad=30
+    )
+
+    # =========================
+    # LEYENDA
+    # =========================
+
+    ax.legend(
+        loc="upper right",
+        bbox_to_anchor=(1.25, 1.10),
+        fontsize=12
+    )
+
+    ax.grid(
+        color="gray",
+        alpha=0.3
+    )
 
     st.pyplot(fig)
 
@@ -684,3 +973,157 @@ elif modo == "Guía del Vendedor":
         El arranque eléctrico suele ser el más cómodo
         para el usuario.
         """)
+
+################################# CUARTO MODO, ACERCA DEL PROYECTO Y DEL AUTOR, MEDIOS DE CONTACTO ######################################
+
+elif modo == "Acerca del proyecto":
+
+    st.title("🏍️ Catálogo Inteligente de Motocicletas")
+    st.markdown("### Presentación ejecutiva del sistema")
+    st.divider()
+
+    # ---------------- PROBLEMA + PROYECTO ----------------
+    st.markdown("## 🧭 Descripción del proyecto")
+
+    st.markdown("""
+    Plataforma desarrollada para facilitar la consulta, comparación y análisis de motocicletas dentro del catálogo de la empresa.
+
+    El objetivo es mejorar la toma de decisiones tanto para asesores de venta como para clientes,
+    centralizando información técnica y permitiendo explorar alternativas de forma rápida e intuitiva.
+    """)
+
+    st.divider()
+
+    # ---------------- OBJETIVOS ----------------
+    st.markdown("## 🎯 Objetivos del sistema")
+
+    st.markdown("""
+    - Centralizar la información técnica de motocicletas.
+    - Facilitar la comparación entre modelos.
+    - Agilizar la atención al cliente en piso de venta.
+    - Reducir el tiempo de búsqueda de especificaciones.
+    - Servir como base para futuras herramientas de análisis y recomendación.
+    """)
+
+    st.divider()
+
+    # ---------------- FUNCIONALIDADES ----------------
+    st.markdown("## ⚙️ Funcionalidades actuales")
+
+    st.markdown("""
+    - ✅ Consulta de especificaciones técnicas por modelo
+    - ✅ Filtros por marca, cilindrada y tipo
+    - ✅ Comparador de motocicletas lado a lado
+    - ✅ Sistema de recomendación basado en similitud
+    - ✅ Visualización estructurada de catálogo
+    """)
+
+    st.divider()
+
+    # ---------------- IMPACTO ----------------
+    st.markdown("## 📊 Impacto esperado")
+
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        st.metric("Tiempo de consulta", "-70%")
+
+    with col2:
+        st.metric("Comparación", "Más rápida")
+
+    with col3:
+        st.metric("Experiencia cliente", "Mejorada")
+
+    st.divider()
+
+    # ---------------- ROADMAP ----------------
+    st.markdown("## 🚀 Roadmap")
+
+    st.markdown("""
+    - 🧠 Recomendación más avanzada (modelo predictivo)
+    - 📊 Integración con datos de ventas reales
+    - 🔗 Conexión con inventario en tiempo real
+    - 📱 Migración a aplicación móvil
+    - 📈 Dashboard de análisis para gerencia
+    """)
+
+    st.divider()
+
+    # ---------------- ARQUITECTURA ----------------
+    st.markdown("## ⚙️ Arquitectura del sistema")
+
+    st.code("""
+CSV / Base de datos
+      ↓
+Pandas (procesamiento)
+      ↓
+Streamlit (interfaz actual)
+      ↓
+Futuro: FastAPI + App móvil
+""")
+
+    st.divider()
+
+    # ---------------- DESARROLLADOR ----------------
+    st.markdown("## 👨‍💻 Desarrollador")
+
+    st.markdown("""
+    **Giovanni Jefté Aguilar Carmona**  
+    Licenciado en Física - Facultad de Ciencias, UNAM
+
+    ### Intereses principales:
+    - Ciencia de datos
+    - Sistemas complejos
+    - Programación aplicada
+    - Análisis de información
+
+    Este proyecto forma parte de una iniciativa de desarrollo de herramientas internas orientadas
+    a la optimización de procesos de consulta y decisión.
+    """)
+
+    st.divider()
+
+    # ---------------- CV ----------------
+    st.markdown("## 📄 Currículum Vitae")
+
+    with open("CV_Aguilar Carmona Giovanni Jefté.pdf", "rb") as file:
+        st.download_button(
+            label="📄 Descargar CV",
+            data=file,
+            file_name="CV_Giovanni_Aguilar.pdf",
+            mime="application/pdf"
+        )
+
+    st.divider()
+
+    # ---------------- CONTACTO ----------------
+    st.markdown("## 📬 Contacto")
+
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        st.link_button("📧 Correo (Institucional)", "mailto:gjaguilarc@suburbia.com.mx")
+
+    with col2:
+        st.link_button("📧 Correo", "mailto:gj.aguilar852@gmail.com")
+
+    with col3:
+        st.link_button("💻 GitHub", "https://github.com/Tzekelkan852")
+
+
+
+
+############ FIRMA DEL CATALOGO ##########################
+
+st.divider()
+
+st.markdown(
+    """
+    <div style='text-align: center; color: gray; font-size: 13px;'>
+        🏍️ Catálogo Inteligente de Motocicletas<br>
+        Desarrollado por <b>Giovanni J. Aguilar</b> · UNAM<br>
+        Proyecto interno de análisis y optimización de catálogo
+    </div>
+    """,
+    unsafe_allow_html=True
+)
