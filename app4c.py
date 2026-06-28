@@ -210,6 +210,7 @@ def motos_similares(df, modelo, n=5):
     #y recomendacion de motos "similares" a la seleccionada por el cliente y que el asesor puede 
     #consultar en busqueda de mayores opciones. Estas son elegidas por su sencilla cuatificación.
     #Cada moto tendrá su propio conjunto de valores númericos como una huella de identidad.
+    #ALGORITMO Nearest Neighbors.
     variables = [   
         "C. Motor",
         "Potencia (HP)",
@@ -313,54 +314,66 @@ categorias = {
 ###################################################################################################################################################################
 ###################################################################################################################################################################
 #endregion
-# =========================
-# MODO
-# =========================
 
+###################################################################################################################################################################
+###################################################################################################################################################################
+#MODO
+
+#Pieza angular del codigo, es donde nacen los cuatro modos
 modo = st.radio(
     "Selecciona una opción",
     ["Ficha Técnica", "Comparar", "Guía del Vendedor", "Acerca del proyecto"]
 )
 
-# =========================
-# SELECTOR PRIMER MODO FICHA
-# =========================
+###################################################################################################################################################################
+###################################################################################################################################################################
 
-if modo == "Ficha Técnica":
+#region MODO 1 FICHA Y SUGERENCIA
+###################################################################################################################################################################
+###################################################################################################################################################################
 
+#region FICHA TECNICA
+
+# Muestra un menú desplegable con todos los modelos disponibles en el catálogo para que el vendedor o usuario
+# seleccione la motocicleta que desea consultar.
+
+if modo == "Ficha Técnica": #aqui comienza la primera anidación de todo este segmento, así mismo cabe resaltar, que sería mucho más sencillo
+                            #definir un montón de funciones en este bloque y el siguiente para tener un resultado más limpio, pero eso es
+                            #únicamente tema de optimización, por ahora esto basta.
     modelo = st.selectbox(
         "Selecciona un modelo",
-        sorted(df["Modelo"].unique())
+        sorted(df["Modelo"].unique())  #Elimina modelos repetidos, en nuestra base de datos esto no ocurre, pues la he creado a mano, 
+                                        #identificando ademas cada modelo con su año, pero para el futuro podría ser útil.
     )
 
-# =========================
+# ==================================================
 # BUSCAR MOTO
-# =========================
 
+# Busca en el df la fila correspondiente al modelo seleccionado.
     resultado = df[df["Modelo"] == modelo]
 
     if resultado.empty:
 
-        st.error("Modelo no encontrado")
+        st.error("Modelo no encontrado") #si no se encuentra ningún registro detiene la ejecución
         st.stop()
 
-    fila = resultado.iloc[0]
+    fila = resultado.iloc[0] # Extrae la fila encontrada para facilitar el acceso a cada característica.
 
 # =========================
 # IMAGEN
-# =========================
 
+    # Construye automáticamente la ruta donde debería encontrarse la imagen de la motocicleta.
     ruta_imagen = os.path.join(CARPETA_IMAGENES, f"{modelo}.jpg")
 
-    if os.path.exists(ruta_imagen):
-
+    if os.path.exists(ruta_imagen): # Solo muestra la imagen si el archivo existe.
         st.image(ruta_imagen, use_container_width=True)
 
 # =========================
 # VIDEO 1
-# =========================
 
-    if "URL" in df.columns:
+# Si existe la columna URL y contiene un enlace válido, muestra el video principal de la motocicleta y secundario respectivamente.
+
+    if "URL" in df.columns: 
 
         if pd.notna(fila["URL"]):
 
@@ -397,15 +410,17 @@ if modo == "Ficha Técnica":
 
 # =========================
 # FICHA TÉCNICA
-# =========================
+
+# Con lo anterior definido, construímos por fín la ficha técnica
+# Recorre las categorías definidas al inicio del programa y organiza la información en expanders para facilitar la lectura.
 
     st.header("📋 Ficha Técnica")
 
 
     for categoria, columnas in categorias.items():
 
-        with st.expander(categoria, expanded=True):
-
+        with st.expander(categoria, expanded=True): # Para cada categoría se muestran únicamente las
+                                                    # columnas que existan y cuyo valor no esté vacío.
             for columna in columnas:
 
                 if columna in fila.index:
@@ -424,11 +439,18 @@ if modo == "Ficha Técnica":
                         )
 
     # ====================================================================================================PRUEBA
+#endregion
+###################################################################################################################################################################
+###################################################################################################################################################################
 
-
-# =========================
+#region SUGERENCIA DE MOTO
+# ===========================================================================
 # MOTOS SIMILARES
 # =========================
+
+# Utiliza el sistema de recomendación basado en Machine Learning para sugerir motocicletas con características similares a la
+# seleccionada por el usuario. Usando la función ya explicada, que genera un espacio matemático similar a un vector y calcula
+# las distancias.
 
     st.header("🤝 También te puede interesar")
 
@@ -438,24 +460,28 @@ if modo == "Ficha Técnica":
         n=4
     )
 
-    # Crear una columna por cada recomendación
+# Crea una columna por cada motocicleta recomendada para mostrarlas horizontalmente en forma de tarjetas.
     columnas = st.columns(len(similares))
 
-    for col, (_, moto) in zip(columnas, similares.iterrows()):
+    for col, (_, moto) in zip(columnas, similares.iterrows()):# Recorre simultáneamente las columnas creadas y cada una de las motocicletas recomendadas.
+    # En este caso iterrows devuelve dos valores "indice, fila" por eso el (_, moto) porque desechamos el índice, de nada nos sirve ahora.
 
-        modelo_sim = str(moto["Modelo"]).strip()
+        modelo_sim = str(moto["Modelo"]).strip()# Obtiene el nombre del modelo y elimina posibles espacios sobrantes para construir 
+    # correctamente la ruta de la imagen.
 
-        ruta_img = os.path.join(CARPETA_IMAGENES, f"{modelo_sim}.jpg")
+        ruta_img = os.path.join(CARPETA_IMAGENES, f"{modelo_sim}.jpg") #Busca la imagen
 
-        with col:
+        with col: # Todo el contenido generado dentro de este bloque aparecerá en la columna asignada a la motocicleta actual.
 
-            if os.path.exists(ruta_img):
+            if os.path.exists(ruta_img): # Si existe, se muestra
 
                 st.image(
                     ruta_img,
                     use_container_width=True
                 )
 
+            # Genera una tarjeta utilizando HTML y CSS personalizado para mostrar de forma compacta la información más
+            # relevante de cada motocicleta recomendada. 
             st.markdown(f"""
             <div class="tarjeta-moto">
 
@@ -477,12 +503,24 @@ if modo == "Ficha Técnica":
 
             </div>
             """, unsafe_allow_html=True)
+#endregion
+###################################################################################################################################################################
+###################################################################################################################################################################
     
-    #    ====================================================================================================
+#endregion
 
+
+#region MODO 2 COMPARACION TEXTUAL Y GRÁFICA
+###################################################################################################################################################################
+###################################################################################################################################################################
+
+#region Textual
+
+# Se ejecuta cuando el usuario selecciona el modo "Comparar", permitiendo analizar dos motocicletas lado a lado, inspirado
+# en las típicas páginas que comparan entre procesadores de computadoras resaltando caracterísitcas frente a otras.
 elif modo == "Comparar":
 
-    #modelos = sorted(df["Modelo"].unique())
+    # Obtiene todos los modelos disponibles del catálogo, elimina posibles valores vacíos o duplicados y los ordena alfabéticamente.
     modelos = sorted(
         [
             m
@@ -495,6 +533,7 @@ elif modo == "Comparar":
         ]
     )
 
+    #Creamos dos selectores independientes
     modelo1 = st.selectbox(
         "Moto 1",
         modelos,
@@ -507,13 +546,15 @@ elif modo == "Comparar":
         key="moto2"
     )
 
+    # Localiza dentro del DataFrame la información correspondiente a cada uno de los modelos seleccionados.
     fila1 = df[df["Modelo"] == modelo1].iloc[0]
 
     fila2 = df[df["Modelo"] == modelo2].iloc[0]
 
-    col1, col2 = st.columns(2)
+    col1, col2 = st.columns(2) # Divide la pantalla en dos columnas para mostrar visualmente ambas motocicletas una junto a la otra.
 
-    with col1:
+
+    with col1: #primera moto
 
         st.subheader(modelo1)
 
@@ -522,14 +563,14 @@ elif modo == "Comparar":
             f"{modelo1}.jpg"
         )
 
-        if os.path.exists(ruta1):
+        if os.path.exists(ruta1): #si esxiste imagen (que procuro sea así) se muestra
 
             st.image(
                 ruta1,
                 use_container_width=True
             )
 
-    with col2:
+    with col2: #moto2
 
         st.subheader(modelo2)
 
@@ -544,19 +585,22 @@ elif modo == "Comparar":
                 ruta2,
                 use_container_width=True
             )
-
+    ###############################################################################################################################
+    ###############################################################################################################################    
+        
+    # Inicia la construcción de la tabla comparativa, donde se mostrarán las especificaciones técnicas de ambas motocicletas.
     st.header("⚖️ Comparación")
 
     filas = []
-
+    # Recorre cada categoría definida previamente y extrae las características correspondientes para construir la comparación.
     for categoria, columnas in categorias.items():
 
         for columna in columnas:
 
             if columna in df.columns:
 
-                filas.append({
-
+                filas.append({ # Cada característica se almacena como un diccionario, donde la primera columna indica el nombre de la
+                               # especificación y las siguientes contienen los valores de ambas motocicletas.
                     "Característica": columna,
 
                     modelo1: fila1[columna],
@@ -565,20 +609,27 @@ elif modo == "Comparar":
 
                 })
 
-    comparacion = pd.DataFrame(filas)
-
-
-    max_hp = df["Potencia (HP)"].max() #normalizamos todos los resultado de HP de manera consistente
-
+    comparacion = pd.DataFrame(filas) #Convierte la lista de diccionarios en un df para facilitar su procesamiento.
+    
+    # Muestra la tabla comparativa ocupando todo el ancho disponible y ocultando el índice del df.
     st.dataframe(
         comparacion,
         use_container_width=True,
         hide_index=True
     )
+#endregion
+###################################################################################################################################################################
+###################################################################################################################################################################
+
+#region  COMPARACIÓN VISUAL (GRÁFICA DE RADAR)
+
+# Genera una gráfica de radar para comparar de forma visual las principales características de ambas motocicletas.
+
+    max_hp = df["Potencia (HP)"].max() #normalizamos todos los resultado de HP de manera consistente
 
     st.header("📊 Comparación Visual")
     
-    
+    # Define las variables numéricas que se utilizarán para construir el radar. Cada una representará un eje de la gráfica.
     metricas = [
         "Potencia (HP)",
         "Torque (Nm)",
@@ -587,19 +638,34 @@ elif modo == "Comparar":
         "Autonomía (Km)",
         "Peso Máximo Soportado (kg)"
     ]
+    # ====================================================================================================
+    # NORMALIZACIÓN DE DATOS (Paréntesis muy necesario sobra la normalización a uno)
+    # =================================================================================================
 
-    #normalizamos################################
+    # Cada métrica posee unidades y escalas diferentes, Por ejemplo:
+    #
+    # Potencia:        20 - 40 HP
+    # Velocidad:      100 - 180 km/h
+    # Autonomía:      250 - 700 km
+    #
+    # Si se compararan directamente, las variables con valores más grandes dominarían la gráfica.
+    #
+    # Para evitarlo, cada valor se divide entre el máximo existente dentro del catálogo, obteniendo valores
+    # entre 0 y 1. Las normalizaciones a la unidad son tipicas dentro de las matemáticas, la normalización
+    # más cotidiana de esto es manejar así las probabilidades, simplemente se escalan a un interválo.
 
-    valores1 = []
+
+    valores1 = []# Almacenarán los valores normalizados de ambas motos.
     valores2 = []
 
-    for metrica in metricas:
-
+    for metrica in metricas:# Recorre cada una de las métricas seleccionadas y calcula su valor normalizado para ambas motos.
+        # Obtiene el mayor valor registrado en el catálogo para la métrica actual. Servirá como referencia
+        # para normalizar los datos. Todo para obtener una mejor visulización.
         maximo = pd.to_numeric(
             df[metrica],
             errors="coerce"
         ).max()
-
+        #convierte a tipo numerico 
         v1 = pd.to_numeric(
             fila1[metrica],
             errors="coerce"
@@ -610,11 +676,16 @@ elif modo == "Comparar":
             errors="coerce"
         )
 
-        valores1.append(v1 / maximo)
+        valores1.append(v1 / maximo)#Normalización
         valores2.append(v2 / maximo)
 
-    N = len(metricas) #creamos el radar############
+    # =========================
+    # CONSTRUCCIÓN DEL RADAR
+    # =========================
 
+    # Determina el número de ejes que tendrá la gráfica, uno por cada métrica dada.
+    N = len(metricas)
+    # Calcula la posición angular de cada eje dentro del círculo.
     angulos = np.linspace(
         0,
         2 * np.pi,
@@ -622,20 +693,20 @@ elif modo == "Comparar":
         endpoint=False
     ).tolist()
 
+    # Para cerrar correctamente el polígono del radar, se vuelve a agregar el primer valor al final de cada lista.
+    # De otro modo no se cierra.
     valores1 += valores1[:1]
     valores2 += valores2[:1]
 
     angulos += angulos[:1]
 
+    #Creamo una figura polar, ya que usamos radianes para las posiciones angulares.
     fig, ax = plt.subplots(
         figsize=(8,8),
         subplot_kw=dict(polar=True)
     )
 
-    # =========================
-    # MOTO 1 (VERDE)
-    # =========================
-
+    # MOTO 1 (VERDE) contorno y área
     ax.plot(
         angulos,
         valores1,
@@ -650,11 +721,7 @@ elif modo == "Comparar":
         color="limegreen",
         alpha=0.35
     )
-
-    # =========================
     # MOTO 2 (ROJO)
-    # =========================
-
     ax.plot(
         angulos,
         valores2,
@@ -670,10 +737,7 @@ elif modo == "Comparar":
         alpha=0.35
     )
 
-    # =========================
     # ETIQUETAS
-    # =========================
-
     ax.set_xticks(angulos[:-1])
 
     ax.set_xticklabels(
@@ -689,10 +753,8 @@ elif modo == "Comparar":
         fontweight="bold"
     )
 
-    # =========================
-    # ESCALA
-    # =========================
 
+    # ESCALA (Entre cero y uno), aqui se encuentra la gran ventaja de la normalizacion.
     ax.set_ylim(0, 1)
 
     # tamaño de números radiales
@@ -703,8 +765,6 @@ elif modo == "Comparar":
 
     # =========================
     # TÍTULO
-    # =========================
-
     ax.set_title(
         "Comparación de Desempeño",
         fontsize=18,
@@ -712,10 +772,7 @@ elif modo == "Comparar":
         pad=30
     )
 
-    # =========================
     # LEYENDA
-    # =========================
-
     ax.legend(
         loc="upper right",
         bbox_to_anchor=(1.25, 1.10),
@@ -728,9 +785,16 @@ elif modo == "Comparar":
     )
 
     st.pyplot(fig)
+#endregion
+###################################################################################################################################################################
+###################################################################################################################################################################
+
+#endregion
 
 
-################## TERCER MODO #####################
+#region MODO 3 GUIA DEL VENDEDOR
+###################################################################################################################################################################
+###################################################################################################################################################################
 
 elif modo == "Guía del Vendedor":
 
@@ -973,29 +1037,51 @@ elif modo == "Guía del Vendedor":
         El arranque eléctrico suele ser el más cómodo
         para el usuario.
         """)
+###################################################################################################################################################################
+###################################################################################################################################################################
+#endregion
 
-################################# CUARTO MODO, ACERCA DEL PROYECTO Y DEL AUTOR, MEDIOS DE CONTACTO ######################################
+
+#region MODO 4 ACERCA DEL PROYECTO Y DEL AUTOR, MEDIOS DE CONTACTO
 
 elif modo == "Acerca del proyecto":
 
     st.title("🏍️ Catálogo Inteligente de Motocicletas")
-    st.markdown("### Presentación ejecutiva del sistema")
+    st.markdown("## Presentación del sistema")
     st.divider()
 
     # ---------------- PROBLEMA + PROYECTO ----------------
-    st.markdown("## 🧭 Descripción del proyecto")
+    st.markdown("##  Descripción del proyecto")
 
     st.markdown("""
-    Plataforma desarrollada para facilitar la consulta, comparación y análisis de motocicletas dentro del catálogo de la empresa.
+    Plataforma desarrollada para facilitar la consulta, comparación y análisis de motocicletas pertenecientes al catálogo de la empresa. 
+                Su propósito va más allá de mostrar y comparar fichas técnicas: busca servir como una herramienta de apoyo para el asesor de ventas, 
+                proporcionando explicaciones claras sobre los principales conceptos presentes en las especificaciones de cada motocicleta. Además de
+                apoyar mostrando material audiovisual para que el cliente pueda conocer un producto que podría no estar disponible directamente en
+                piso de venta.
+    
+    Además de centralizar la información técnica, la aplicación incorpora una guía interactiva que explica, en un lenguaje sencillo, términos como potencia, 
+                caballos de fuerza (HP), torque, revoluciones por minuto (RPM), autonomía y otros conceptos que suelen generar dudas tanto en asesores como 
+                en clientes. De esta manera, la plataforma no solo facilita la consulta de información, sino que también contribuye al aprendizaje continuo 
+                del personal.
 
-    El objetivo es mejorar la toma de decisiones tanto para asesores de venta como para clientes,
-    centralizando información técnica y permitiendo explorar alternativas de forma rápida e intuitiva.
+    La idea de este proyecto surge a partir de la experiencia de un asesor de experiencia al cliente en sus primeras etapas de formación. 
+                Durante ese proceso se identificaron dos desafíos principales. El primero fue la necesidad de adaptarse rápidamente a un gran volumen de 
+                información técnica y comprender conceptos provenientes de áreas como la física y la mecánica. El segundo fue reconocer que la seguridad y 
+                el dominio del producto durante una asesoría generan mayor confianza en el cliente, favoreciendo una comunicación más clara y una mejor 
+                toma de decisiones al momento de la compra. Así, centralizando información técnica y permitiendo explorar alternativas de forma rápida e 
+                intuitiva se lanza la propuesta de este proyecto que pretende llegar a TODOS los asesores experiencia cliente que desen brindar 
+                la mejor atención a los clientes.
+                
+    Este proyecto no pretende ser una mera exhibición "bruta" de capacidades técnicas, sino que es un proyecto que busca resolver
+                problemáticas específicas de la manera más sencilla posible a la que un asesor pueda acceder sin instalar ninguna 
+                aplicación, ¡solo guardando un link!
     """)
 
     st.divider()
 
     # ---------------- OBJETIVOS ----------------
-    st.markdown("## 🎯 Objetivos del sistema")
+    st.markdown("## Objetivos del sistema")
 
     st.markdown("""
     - Centralizar la información técnica de motocicletas.
@@ -1008,43 +1094,43 @@ elif modo == "Acerca del proyecto":
     st.divider()
 
     # ---------------- FUNCIONALIDADES ----------------
-    st.markdown("## ⚙️ Funcionalidades actuales")
+    st.markdown("## Funcionalidades actuales")
 
     st.markdown("""
-    - ✅ Consulta de especificaciones técnicas por modelo
-    - ✅ Filtros por marca, cilindrada y tipo
-    - ✅ Comparador de motocicletas lado a lado
-    - ✅ Sistema de recomendación basado en similitud
-    - ✅ Visualización estructurada de catálogo
+    - ✅ Consulta de especificaciones técnicas por modelo (ficha técnica).
+    - ✅ Exhibición directa de los productos por medio del uso de materiales audio visuales (videos).
+    - ✅ Comparador de motocicletas lado a lado (textual y visual).
+    - ✅ Sistema de recomendación basado en similitud.
+    - ✅ Visualización estructurada de catálogo (esquema de cuatro modos).
+    - ✅ Guía de consulta a modo de capacitación "a la mano".
     """)
 
     st.divider()
 
-    # ---------------- IMPACTO ----------------
-    st.markdown("## 📊 Impacto esperado")
 
-    col1, col2, col3 = st.columns(3)
-
-    with col1:
-        st.metric("Tiempo de consulta", "-70%")
-
-    with col2:
-        st.metric("Comparación", "Más rápida")
-
-    with col3:
-        st.metric("Experiencia cliente", "Mejorada")
-
-    st.divider()
 
     # ---------------- ROADMAP ----------------
     st.markdown("## 🚀 Roadmap")
 
     st.markdown("""
-    - 🧠 Recomendación más avanzada (modelo predictivo)
-    - 📊 Integración con datos de ventas reales
-    - 🔗 Conexión con inventario en tiempo real
-    - 📱 Migración a aplicación móvil
-    - 📈 Dashboard de análisis para gerencia
+                
+    - 🛍️ Integración de nuevas categorías de mercancías: La arquitectura modular del sistema facilita su escalabilidad, permitiendo reutilizar 
+    la plataforma con diferentes bases de datos e incorporar nuevas categorías de productos, como colchones, telefonía, línea blanca u otras mercancías 
+    comercializadas por la empresa que requieren especial atención a sus especificaciones.
+            
+    - 📊 Integración con datos de ventas reales: La plataforma podría conectarse con la información histórica de ventas de la 
+    empresa para identificar tendencias, conocer cuáles son los modelos con mayor demanda y analizar el comportamiento de los clientes. 
+    Esto permitiría generar reportes estadísticos que apoyen la toma de decisiones comerciales si es el caso.
+                
+    - 🔗 Conexión con inventario en tiempo real: Una futura integración con el sistema de inventario permitiría mostrar únicamente las motocicletas 
+    disponibles en cada sucursal, consultar existencias en tiempo real e incluso indicar cuándo un modelo está próximo a agotarse o cuándo se 
+    espera un nuevo ingreso.
+                
+    - 📱 Migración a aplicación móvil: Si bien el espiritu del proyecto es disponibilidad sin mayores requerimientos, es de conocimiento general
+    que no todos los asesores cuentan con una red o acceso competente a ella. Aunque actualmente la plataforma funciona como una aplicación web desarrollada 
+    con Streamlit, una evolución natural del proyecto sería convertirla en una aplicación móvil para Android e iOS. Esto con la intención de facilitar su uso 
+    directamente desde el piso de ventas, reduciendo los requisitos de dos a uno (smartphone + conexión a internet), permitiendo a los asesores consultar 
+    información desde un teléfono sin más requerimientos..
     """)
 
     st.divider()
@@ -1053,14 +1139,42 @@ elif modo == "Acerca del proyecto":
     st.markdown("## ⚙️ Arquitectura del sistema")
 
     st.code("""
-CSV / Base de datos
-      ↓
-Pandas (procesamiento)
-      ↓
-Streamlit (interfaz actual)
-      ↓
-Futuro: FastAPI + App móvil
-""")
+                        Usuario
+                        │
+                        ▼
+    ┌─────────────────────────────────────┐
+    │      PRESENTACIÓN (Streamlit)        │
+    │ Interfaz gráfica de la aplicación    │
+    └─────────────────────────────────────┘
+                        │
+                        ▼
+    ┌─────────────────────────────────────┐
+    │        LÓGICA DE NEGOCIO            │
+    │ • Consulta de fichas técnicas       │
+    │ • Comparador de motocicletas        │
+    │ • Sistema de recomendación          │
+    │ • Guía interactiva para el asesor   │
+    └─────────────────────────────────────┘
+                        │
+                        ▼
+    ┌─────────────────────────────────────┐
+    │   PROCESAMIENTO DE DATOS            │
+    │ Pandas • NumPy • scikit-learn       │
+    └─────────────────────────────────────┘
+                        │
+                        ▼
+    ┌─────────────────────────────────────┐
+    │       ALMACENAMIENTO                │
+    │ CSV • Imágenes • Videos             │
+    └─────────────────────────────────────┘
+
+    ═══════════════════════════════════════════
+
+        ☁️ Alojado en Streamlit Community Cloud
+                (SCC)
+
+    ═══════════════════════════════════════════
+    """)
 
     st.divider()
 
@@ -1068,17 +1182,19 @@ Futuro: FastAPI + App móvil
     st.markdown("## 👨‍💻 Desarrollador")
 
     st.markdown("""
-    **Giovanni Jefté Aguilar Carmona**  
-    Licenciado en Física - Facultad de Ciencias, UNAM
+    **Giovanni Jefté Aguilar Carmona.**  
+    Licenciado en Física - Facultad de Ciencias, UNAM.
 
-    ### Intereses principales:
-    - Ciencia de datos
-    - Sistemas complejos
-    - Programación aplicada
-    - Análisis de información
+    ### Competencias principales:
+    - Física y matemáticas.
+    - Ciencia de datos.
+    - Sistemas complejos (redes).
+    - Programación aplicada Python, R y Ruby.
+    - Análisis e interpretación de información.
+    - Dominio de paquetería M. Office. y terminal Linux con enfoque en distribuciones basadas en Debian.
 
     Este proyecto forma parte de una iniciativa de desarrollo de herramientas internas orientadas
-    a la optimización de procesos de consulta y decisión.
+    a la optimización de procesos de consulta y decisión para colaboradores.
     """)
 
     st.divider()
@@ -1099,31 +1215,45 @@ Futuro: FastAPI + App móvil
     # ---------------- CONTACTO ----------------
     st.markdown("## 📬 Contacto")
 
-    col1, col2, col3 = st.columns(3)
+    col1, col2 , col3= st.columns(3)
 
     with col1:
-        st.link_button("📧 Correo (Institucional)", "mailto:gjaguilarc@suburbia.com.mx")
+        st.markdown("""
+    **📧 Correo institucional**
+
+    gjaguilarc@suburbia.com.mx
+    """)
 
     with col2:
-        st.link_button("📧 Correo", "mailto:gj.aguilar852@gmail.com")
+        st.markdown("""
+    **📧 Correo personal**
 
+    gj.aguilar852@gmail.com
+    """)
     with col3:
         st.link_button("💻 GitHub", "https://github.com/Tzekelkan852")
 
+###################################################################################################################################################################
+###################################################################################################################################################################
+#endregion
 
 
-
-############ FIRMA DEL CATALOGO ##########################
-
+#region FIRMA DEL CATALOGO ##########################
+###################################################################################################################################################################
+###################################################################################################################################################################
 st.divider()
 
-st.markdown(
-    """
-    <div style='text-align: center; color: gray; font-size: 13px;'>
-        🏍️ Catálogo Inteligente de Motocicletas<br>
-        Desarrollado por <b>Giovanni J. Aguilar</b> · UNAM<br>
-        Proyecto interno de análisis y optimización de catálogo
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+st.markdown("""
+<div style='text-align:center;
+            color:#BFBFBF;
+            font-size:13px;
+            padding-top:15px;'>
+
+🏍️ <b>Catálogo Inteligente de Motocicletas</b><br>
+
+Desarrollado por <b>Giovanni J. Aguilar</b> · Facultad de Ciencias · UNAM<br>
+
+Proyecto de desarrollo de software con técnicas de análisis de datos y recomendación basada en similitud.
+</div>
+""", unsafe_allow_html=True)
+#endregion
