@@ -1,10 +1,10 @@
-# 🏍️ Catálogo Inteligente de Motocicletas
+# Catálogo Inteligente de Motocicletas
 
 Aplicación web desarrollada en **Python** y **Streamlit** para la consulta, comparación y análisis de especificaciones técnicas de motocicletas.
 
 El sistema fue diseñado como una herramienta de apoyo para asesores de ventas, permitiendo acceder de forma rápida a información técnica, material audiovisual y explicaciones de conceptos clave relacionados con el desempeño de una motocicleta. Su objetivo es facilitar la atención al cliente, reducir los tiempos de búsqueda de información y fortalecer el conocimiento del producto en el piso de venta.
 
-## 🌟 Motivación
+## Motivación
 
 La idea surge a partir de la experiencia de formación de un asesor de experiencia al cliente, donde se identificaron dos desafíos principales:
 
@@ -13,7 +13,7 @@ La idea surge a partir de la experiencia de formación de un asesor de experienc
 
 A partir de estas observaciones se desarrolló una plataforma capaz de centralizar información, facilitar comparaciones y proporcionar apoyo en la interpretación de conceptos técnicos, todo ello sin necesidad de instalar software adicional.
 
-## 🎯 Objetivos
+## Objetivos
 
 * Centralizar la información técnica de motocicletas.
 * Facilitar la comparación entre modelos.
@@ -21,7 +21,7 @@ A partir de estas observaciones se desarrolló una plataforma capaz de centraliz
 * Reducir el tiempo de búsqueda de especificaciones.
 * Servir como base para futuras herramientas de análisis y recomendación.
 
-## 🚀 Funcionalidades
+## Funcionalidades
 
 ### Consulta de fichas técnicas
 
@@ -55,74 +55,7 @@ Explicaciones accesibles sobre conceptos como:
 
 Diferentes modos de navegación para facilitar la exploración del catálogo.
 
-## 🏗️ Arquitectura
-
-```text
-                    Usuario
-                        │
-                        ▼
-┌─────────────────────────────────────┐
-│      PRESENTACIÓN (Streamlit)        │
-│ Interfaz gráfica de la aplicación    │
-└─────────────────────────────────────┘
-                        │
-                        ▼
-┌─────────────────────────────────────┐
-│        LÓGICA DE NEGOCIO            │
-│ • Consulta de fichas técnicas       │
-│ • Comparador de motocicletas        │
-│ • Sistema de recomendación          │
-│ • Guía interactiva para el asesor   │
-└─────────────────────────────────────┘
-                        │
-                        ▼
-┌─────────────────────────────────────┐
-│   PROCESAMIENTO DE DATOS            │
-│ Pandas • NumPy • scikit-learn       │
-└─────────────────────────────────────┘
-                        │
-                        ▼
-┌─────────────────────────────────────┐
-│       ALMACENAMIENTO                │
-│ CSV • Imágenes • Videos             │
-└─────────────────────────────────────┘
-```
-
-## 🛠️ Tecnologías utilizadas
-
-* Python
-* Streamlit
-* Pandas
-* NumPy
-* scikit-learn
-* HTML/CSS (integrado en Streamlit)
-* Streamlit Community Cloud
-
-## 📈 Roadmap
-
-### Integración de nuevas categorías de productos
-
-La arquitectura modular del sistema permite reutilizar la plataforma con diferentes bases de datos, facilitando la incorporación de categorías como:
-
-* Colchones
-* Telefonía
-* Línea blanca
-* Electrónica
-* Otras mercancías especializadas
-
-### Integración con datos de ventas
-
-Posibilidad de conectar la plataforma con información histórica de ventas para generar análisis estadísticos y detectar tendencias comerciales.
-
-### Inventario en tiempo real
-
-Integración con sistemas de inventario para consultar disponibilidad de productos por sucursal.
-
-### Aplicación móvil
-
-Migración futura hacia Android e iOS para facilitar el acceso desde el piso de venta.
-
-## 💡 Filosofía del proyecto
+## Filosofía del proyecto
 
 Este proyecto no busca ser únicamente una demostración de capacidades técnicas. Su propósito principal es resolver un problema real mediante una herramienta accesible, intuitiva y fácil de utilizar.
 
