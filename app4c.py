@@ -72,7 +72,7 @@ col1, col2, col3, col4 = st.columns(4)
 with col1:
     st.metric(
         label="Modelos",
-        value="17",
+        value="26",
         delta="🟡 En crecimiento",
         delta_color="normal"
     )
