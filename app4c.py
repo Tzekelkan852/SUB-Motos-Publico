@@ -22,6 +22,7 @@ import pandas as pd
 import os
 import matplotlib.pyplot as plt
 import numpy as np
+import base64
 
 from sklearn.preprocessing import StandardScaler
 from sklearn.neighbors import NearestNeighbors
@@ -1237,11 +1238,19 @@ elif modo == "Acerca del proyecto":
 ###################################################################################################################################################################
 #endregion
 
-
 #region FIRMA DEL CATALOGO ##########################
+
 ###################################################################################################################################################################
+
 ###################################################################################################################################################################
+
 st.divider()
+
+# Centrar el QR
+col1, col2, col3 = st.columns([1, 2, 1])
+
+with col2:
+    st.image("qr-code.png", width=190)
 
 st.markdown("""
 <div style='text-align:center;
@@ -1254,6 +1263,8 @@ st.markdown("""
 Desarrollado por <b>Giovanni J. Aguilar</b> · Facultad de Ciencias · UNAM<br>
 
 Proyecto de desarrollo de software con técnicas de análisis de datos y recomendación basada en similitud.
+
 </div>
 """, unsafe_allow_html=True)
+
 #endregion
