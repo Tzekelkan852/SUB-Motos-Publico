@@ -22,7 +22,6 @@ import pandas as pd
 import os
 import matplotlib.pyplot as plt
 import numpy as np
-import base64
 
 from sklearn.preprocessing import StandardScaler
 from sklearn.neighbors import NearestNeighbors
