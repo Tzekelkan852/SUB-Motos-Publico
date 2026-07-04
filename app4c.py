@@ -1245,12 +1245,13 @@ elif modo == "Acerca del proyecto":
 
 st.divider()
 
-# Firma
+# Firma (Texto centrado)
 st.markdown("""
 <div style='text-align:center;
             color:#BFBFBF;
             font-size:13px;
-            padding-top:15px;'>
+            padding-top:15px;
+            margin-bottom:15px;'>
 
 🏍️ <b>Catálogo Inteligente de Motocicletas</b><br>
 
@@ -1261,13 +1262,19 @@ Proyecto de desarrollo de software con técnicas de análisis de datos y recomen
 </div>
 """, unsafe_allow_html=True)
 
-# Espacio entre el texto y el QR
-st.markdown("<br>", unsafe_allow_html=True)
-
-# QR centrado
-col1, col2, col3 = st.columns([1, 2, 1])
+# QR centrado usando columnas balanceadas
+col1, col2, col3 = st.columns([1.5, 1, 1.5])
 
 with col2:
-    st.image("qr-code.png", width=250)
+    st.image("qr-code.png", width=350)
+    # Leyenda en negrita y centrada justo bajo el QR
+    st.markdown("""
+    <div style='text-align:center; 
+                color:#BFBFBF; 
+                font-size:34px; 
+                margin-top:-10px;'>
+        <b>¡Compártelo!</b>
+    </div>
+    """, unsafe_allow_html=True)
 
 #endregion
