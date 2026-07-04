@@ -1245,12 +1245,7 @@ elif modo == "Acerca del proyecto":
 
 st.divider()
 
-# Centrar el QR
-col1, col2, col3 = st.columns([1, 2, 1])
-
-with col2:
-    st.image("qr-code.png", width=190)
-
+# Firma
 st.markdown("""
 <div style='text-align:center;
             color:#BFBFBF;
@@ -1265,5 +1260,14 @@ Proyecto de desarrollo de software con técnicas de análisis de datos y recomen
 
 </div>
 """, unsafe_allow_html=True)
+
+# Espacio entre el texto y el QR
+st.markdown("<br>", unsafe_allow_html=True)
+
+# QR centrado
+col1, col2, col3 = st.columns([1, 2, 1])
+
+with col2:
+    st.image("qr-code.png", width=250)
 
 #endregion
