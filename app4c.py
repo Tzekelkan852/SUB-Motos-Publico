@@ -25,6 +25,7 @@ import numpy as np
 
 from sklearn.preprocessing import StandardScaler
 from sklearn.neighbors import NearestNeighbors
+
 ###################################################################################################################################################################
 ###################################################################################################################################################################
 # endregion
@@ -322,7 +323,7 @@ categorias = {
 #Pieza angular del codigo, es donde nacen los cuatro modos
 modo = st.radio(
     "Selecciona una opción",
-    ["Ficha Técnica", "Comparar", "Guía del Vendedor", "Acerca del proyecto"]
+    ["Ficha Técnica", "Comparar", "Guía del Vendedor", "Acerca del proyecto", "Red"]
 )
 
 ###################################################################################################################################################################
@@ -800,247 +801,210 @@ elif modo == "Guía del Vendedor":
 
     st.header("🎓 Guía del Vendedor")
 
-    with st.expander("¿Qué es la potencia?"):
-
+    with st.expander("🏍️ ¿Qué tipos de motocicletas existen y qué las diferencia?"):
         st.write("""
-        La potencia indica la capacidad del motor para realizar
-        trabajo en un determinado tiempo.
+        Clasificar las motocicletas ayuda al vendedor a identificar rápidamente qué tipo de usuario es el cliente y ofrecerle el modelo ideal. Aquí están los segmentos principales:
 
-        En las motocicletas suele expresarse en Caballos de Fuerza
-        (HP).
+        * **Urbanas / Street (Trabajo):** Motos de baja cilindrada (100cc a 250cc), ligeras y muy ágiles. Su enfoque principal es la economía de combustible y la durabilidad en el tráfico diario. Tienen una posición de manejo erguida y cómoda.
+          * *Ideal para:* Repartidores, estudiantes y personas que buscan su primer vehículo para ir al trabajo.
+
+        * **Scooters y Maxi-Scooters:**
+          Motos automáticas (transmisión CVT) donde los pies van apoyados en una plataforma interna en lugar de estribos laterales. Suelen tener espacio de carga debajo del asiento. Las *Maxi-Scooters* tienen motores más grandes (300cc+) para salir a carretera.
+          * *Ideal para:* Quienes buscan máxima comodidad, facilidad de manejo (sin cambios) y protección contra salpicaduras en ciudad.
+
+        * **Deportivas (Sport):**
+          Inspiradas en las motos de carreras. Tienen carenados aerodinámicos (plásticos que cubren el motor) y manubrios bajos que obligan al piloto a inclinarse hacia adelante. Priorizan la velocidad máxima, el paso por curva y la aceleración alta.
+          * *Ideal para:* Amantes de la velocidad, la adrenalina y quienes planean rodar en circuitos o autopistas los fines de semana.
+
+        * **Doble Propósito (Dual Sport / Adventure):**
+          Motos diseñadas para funcionar tanto en asfalto como en caminos de tierra, arena o empedrados. Tienen suspensiones muy altas y suaves para absorber baches, llantas con tacos (gajos) y una posición de manejo alta que da mucha visibilidad.
+          * *Ideal para:* Ciudades con muchos baches/topes, o aventureros que quieren explorar rutas de terracería y viajar sin preocuparse por el estado del camino.
+
+        * **Chopper / Custom / Cruiser:**
+          Motos de estilo clásico, inspiradas en el diseño americano tradicional. Tienen asientos bajos, manubrios altos o retrasados, y descansapiés adelantados que permiten una postura de manejo muy relajada ("estilo sillón"). Suelen priorizar el torque sobre la velocidad de punta.
+          * *Ideal para:* Conductores que buscan comodidad en carretera, un estilo rebelde/clásico y disfrutan pasear los fines de semana a ritmos tranquilos.
+
+        * **Touring / Viajeras:**
+          Verdaderos "autos de dos ruedas". Son motocicletas grandes, pesadas, con motores potentes, enormes parabrisas, maletas rígidas integradas y asientos ultra cómodos (tanto para piloto como pasajero). Suelen incluir tecnología avanzada como reversa, calefacción y pantallas de navegación.
+          * *Ideal para:* Viajeros de largas distancias que pasan horas o días enteros en autopista.
+
+        **Tip de venta rápida:** *Si el cliente busca ahorrar ➡️ **Urbana o Scooter**.*
+        *Si el cliente se queja de los baches o viaja a pueblos ➡️ **Doble Propósito**.*
+        *Si el cliente busca estilo y viajar los domingos ➡️ **Cruiser/Chopper**.*
+        """)
+
+    with st.expander("¿Qué es la potencia?"):
+        st.write("""
+        La potencia indica la capacidad del motor para realizar trabajo en un determinado tiempo. 
+        En las motocicletas suele expresarse en Caballos de Fuerza (HP).
 
         Una mayor potencia generalmente significa:
+        * Mejor aceleración a altas revoluciones.
+        * Mayor velocidad máxima.
+        * Mejor desempeño en carretera y rebases.
 
-        • Mejor aceleración.
-        • Mayor velocidad máxima.
-        • Mejor desempeño en carretera.
+        Mientras el torque representa la fuerza de empuje, la potencia representa qué tan rápido puede utilizarse esa fuerza.
 
-        Mientras el torque representa la fuerza de empuje,
-        la potencia representa qué tan rápido puede utilizarse
-        esa fuerza.
-
-        Una forma sencilla de explicarlo a un cliente es:
-
-        "El torque ayuda a arrancar y subir pendientes;
-        la potencia ayuda a alcanzar y mantener velocidades altas."
+        **Forma sencilla de explicarlo a un cliente:**
+        *"El torque ayuda a arrancar, cargar peso y subir pendientes; la potencia ayuda a alcanzar y mantener velocidades altas."*
         """)
 
     with st.expander("¿Qué son los caballos de fuerza (HP)?"):
-
         st.write("""
-        Los HP (Horse Power) indican la potencia del motor.
+        Los HP (*Horse Power*) son la unidad de medida de la potencia del motor. Representan la rapidez con la que el motor puede entregar su fuerza.
 
-        La potencia representa qué tan rápido puede realizar trabajo
-        el motor.
-
-        Un mayor número de HP generalmente significa:
-
-        • Mejor aceleración.
-        • Mayor velocidad máxima.
-        • Mejor desempeño en carretera.
-
-        Es una de las especificaciones más importantes para
-        comparar motocicletas.
+        Un mayor número de HP generalmente se traduce en una velocidad final más alta y una aceleración sostenida en autopista. Es una de las especificaciones clave para comparar el rendimiento entre motocicletas de la misma cilindrada.
         """)
 
     with st.expander("¿Por qué la potencia se alcanza a ciertas RPM?"):
-
         st.write("""
-        El motor no produce su máxima potencia todo el tiempo.
+        El motor no produce su máxima potencia en todo momento; necesita girar a cierta velocidad para alcanzar su punto óptimo.
 
-        Por ejemplo:
-
-        24 HP @ 8,000 RPM
-
-        significa que el motor entrega 24 HP cuando gira
-        a 8,000 revoluciones por minuto.
-
-        Antes o después de ese punto la potencia suele ser menor.
-
-        Esto ayuda a entender cómo se comporta la moto
-        durante la conducción.
+        Por ejemplo: **24 HP @ 8,000 RPM** significa que el motor entrega sus 24 caballos completos justo cuando el tacómetro marca 8,000 revoluciones por minuto. Antes de llegar a ese punto, o si se sobrepasa, la potencia disponible será menor.
         """)
 
     with st.expander("¿Qué es el torque?"):
-
         st.write("""
-        El torque es la fuerza de empuje que genera el motor.
+        El torque (o par motor) es la fuerza de torsión o empuje puro que genera el motor. Es lo que sientes como "patada" al acelerar.
 
-        Un torque elevado ayuda en:
-
-        • Arranques rápidos.
-        • Subidas.
-        • Llevar pasajero o carga.
-        • Recuperaciones de velocidad.
-
-        Mientras la potencia ayuda a alcanzar velocidad,
-        el torque ayuda a mover la motocicleta con fuerza.
+        Un torque elevado o a bajas RPM ayuda en:
+        * Arranques rápidos desde cero.
+        * Subir pendientes pronunciadas sin perder fuerza.
+        * Llevar pasajero o carga pesada sin que el motor se fatigue.
         """)
 
     with st.expander("¿Por qué el torque y la potencia tienen RPM diferentes?"):
-
         st.write("""
-        Es normal que una motocicleta alcance su torque máximo
-        antes que su potencia máxima.
+        Es el comportamiento natural de un motor de combustión. El torque máximo (la fuerza) suele alcanzarse a RPM medias, mientras que la potencia máxima (la velocidad para usar esa fuerza) se logra a RPM más altas, cuando el motor gira más rápido.
 
-        El torque suele aparecer a RPM medias.
+        Por eso una ficha técnica muestra, por ejemplo:
+        * **Torque máximo:** 6,500 RPM
+        * **Potencia máxima:** 8,000 RPM
 
-        La potencia continúa aumentando mientras el motor
-        sigue girando más rápido.
-
-        Por eso una ficha técnica puede mostrar:
-
-        • Torque máximo a 6,500 RPM
-        • Potencia máxima a 8,000 RPM
-
-        Esto no significa que exista un error,
-        sino que el motor entrega características distintas
-        según el régimen de giro.
+        Esto describe la curva de rendimiento de la moto y ayuda al vendedor a saber en qué momento el motor responderá con más fuerza o con más velocidad.
         """)
 
     with st.expander("¿Qué es la cilindrada (C. Motor)?"):
-
         st.write("""
-        La cilindrada es el volumen total de los cilindros del motor,
-        normalmente expresado en centímetros cúbicos (cc).
+        La cilindrada es el volumen útil total de los cilindros del motor, expresado en centímetros cúbicos (cc). 
 
-        En general:
-
-        • Más cilindrada = más potencia y velocidad.
-        • Menos cilindrada = mejor consumo de combustible.
-
-        Ejemplo:
-        Una moto de 125 cc suele enfocarse en economía,
-        mientras que una de 250 cc ofrece mejor desempeño.
+        A grandes rasgos:
+        * **Mayor cilindrada:** Mayor capacidad de admisión de mezcla, lo que suele derivar en más potencia y torque, pero incrementa el consumo.
+        * **Menor cilindrada:** Motores más compactos, ideales para entornos urbanos debido a su alta economía de combustible.
         """)
 
-    with st.expander("¿Qué son los cilindros?"):
-
+    with st.expander("¿Qué son los cilindros y cómo influye su número?"):
         st.write("""
-        Los cilindros son las cámaras donde ocurre la combustión.
+        El cilindro es la cavidad donde se mueve el pistón y ocurre la combustión. Las motocicletas pueden tener uno (monocilíndricas), dos (bicilíndricas) o más cilindros.
 
-        Una moto con más cilindros suele tener:
-
-        • Funcionamiento más suave.
-        • Mayor potencia.
-        • Mejor desempeño a altas RPM.
-
-        Sin embargo, también puede consumir más combustible
-        y requerir mayor mantenimiento.
+        * **Un solo cilindro:** Entrega mucho torque a bajas revoluciones, es económico y fácil de mantener, pero genera más vibraciones.
+        * **Más cilindros (2 o 4):** Entregan una marcha mucho más suave, menos vibraciones y mayor potencia a altas RPM, ideal para viajes largos o altas velocidades.
         """)
 
     with st.expander("¿Qué es la velocidad máxima (Vmax)?"):
-
         st.write("""
-        Es la mayor velocidad que la motocicleta puede alcanzar
-        en condiciones ideales.
+        Es la velocidad límite que la motocicleta puede alcanzar bajo condiciones de laboratorio o pistas ideales (sin viento en contra, piso plano y piloto con peso estándar).
 
-        La velocidad real puede variar dependiendo de:
-
-        • Peso del conductor.
-        • Pendientes.
-        • Viento.
-        • Estado de la carretera.
-
-        Debe tomarse como una referencia comparativa.
+        En el mundo real, la velocidad máxima variará según el peso del conductor, los acompañantes, las pendientes del camino y la altitud sobre el nivel del mar. Debe usarse únicamente como una referencia comparativa.
         """)
 
-    with st.expander("¿Qué significa el enfriamiento?"):
-
+    with st.expander("¿Qué diferencias hay en los sistemas de enfriamiento?"):
         st.write("""
-        El sistema de enfriamiento evita que el motor
-        se sobrecaliente.
+        El sistema de enfriamiento disipa el calor extremo del motor para evitar daños:
 
-        Tipos comunes:
-
-        • Aire
-        • Aceite
-        • Líquido
-
-        Los sistemas por líquido suelen controlar mejor
-        la temperatura en trayectos largos y uso intensivo.
+        * **Por Aire:** Simple, económico y libre de mantenimiento. Depende del movimiento de la moto para enfriarse. Ideal para ciudad y bajas cilindradas.
+        * **Por Aceite:** Utiliza el mismo lubricante del motor pasándolo por un radiador. Ofrece mejor control térmico que el aire puro.
+        * **Líquido (Refrigerante):** Utiliza un radiador y líquido anticongelante. Es el más eficiente; mantiene el motor a una temperatura óptima constante, ideal para trayectos largos, tráfico pesado o altas prestaciones.
         """)
 
-    with st.expander("¿Qué es la transmisión?"):
-
+    with st.expander("¿Qué tipos de transmisión existen?"):
         st.write("""
-        La transmisión envía la potencia del motor
-        hacia la rueda trasera.
+        La transmisión gestiona la potencia del motor y la envía a la rueda trasera:
 
-        Tipos comunes:
-
-        • Manual
-        • Semiautomática
-        • Automática
-
-        La elección depende del estilo de conducción
-        y experiencia del usuario.
+        * **Manual (Con embrague/clutch):** El piloto controla los cambios de marcha manualmente. Ofrece el máximo control del motor.
+        * **Semiautomática:** Permite cambiar de marchas con el pie pero no requiere palanca de embrague (común en motos de trabajo o tipo *Underbone*).
+        * **Automática (CVT):** No existen los cambios de marcha. Solo se acelera y frena (característico de las *Scooters*). Ideal para máxima comodidad urbana.
         """)
 
-    with st.expander("¿Qué significa el consumo (km/L) o rendimiento?"):
-
+    with st.expander("¿Qué significa el rendimiento de combustible (km/L)?"):
         st.write("""
-        Indica cuántos kilómetros puede recorrer la motocicleta
-        con un litro de combustible.
+        Indica la distancia promedio que la motocicleta puede recorrer por cada litro de gasolina consumido. **Un número más alto significa mayor eficiencia y ahorro.**
 
-        Un número más alto significa mejor rendimiento
-        y menor gasto de gasolina.
-
-        Ejemplo:
-
-        40 km/L consume más combustible que una moto
-        que alcanza 55 km/L.
+        Por ejemplo: Una motocicleta con rendimiento de **55 km/L** es mucho más ahorradora y eficiente que una que rinde **40 km/L**.
         """)
 
     with st.expander("¿Qué es la autonomía?"):
-
         st.write("""
-        La autonomía es la distancia aproximada que puede
-        recorrer la motocicleta con un tanque lleno.
+        Es la distancia total estimada que la motocicleta puede recorrer con un solo tanque lleno de combustible antes de quedarse vacía. 
 
-        Se calcula considerando:
-
-        • Capacidad del tanque.
-        • Consumo de combustible.
-
-        Una mayor autonomía permite realizar recorridos
-        más largos sin necesidad de repostar.
+        Se calcula multiplicando la capacidad del tanque (en litros) por el rendimiento promedio (km/L). Una alta autonomía es crucial para usuarios que viajan en carretera o quieren visitar la gasolinera con menos frecuencia.
         """)
 
-    with st.expander("¿Qué tipos de frenos existen?"):
-
+    with st.expander("¿Qué diferencias hay entre los tipos de frenos?"):
         st.write("""
-        Los frenos permiten reducir la velocidad
-        o detener la motocicleta.
+        * **Frenos de Tambor:** Sistema mecánico más antiguo y económico. Tiende a perder eficiencia bajo uso muy intenso debido a la acumulación de calor.
+        * **Frenos de Disco:** Sistema hidráulico expuesto al aire. Ofrece una respuesta de frenado mucho más rápida, precisa y con excelente disipación de calor.
+        """)
 
-        Los más comunes son:
+    with st.expander("¿Qué es el sistema de frenos ABS y por qué es importante?"):
+        st.write("""
+        El ABS (*Anti-lock Braking System*) es un sistema electrónico de seguridad que evita que las ruedas se bloqueen o se amarren durante una frenada de emergencia.
 
-        • Disco
-        • Tambor
+        * **Beneficio clave:** Si el cliente frena a fondo sobre pavimento mojado, arena o aceite, el sistema modula la presión del freno automáticamente para evitar que la moto derrape, permitiendo mantener el control del manillar. Es un argumento de venta masivo en seguridad.
+        """)
 
-        Generalmente los frenos de disco ofrecen
-        mejor capacidad de frenado y disipación de calor.
+    with st.expander("¿Qué diferencia hay entre un motor a carburador y uno de inyección electrónica (FI)?"):
+        st.write("""
+        Describe cómo entra el combustible al motor:
+
+        * **Carburador:** Sistema mecánico tradicional. Es económico de reparar, pero es sensible a los cambios de altitud y clima (puede costar trabajo encender la moto en mañanas frías).
+        * **Inyección Electrónica (Fuel Injection - FI):** Una computadora dosifica la gasolina con precisión exacta. Ofrece un encendido inmediato, optimiza el consumo de combustible, genera menos emisiones y no requiere ajustes si viajas de la costa a zonas altas.
+        """)
+
+    with st.expander("¿Qué diferencias hay entre transmisión por cadena, banda y cardán?"):
+        st.write("""
+        Es el componente final que mueve la rueda trasera:
+
+        * **Cadena:** El más común y eficiente transmitiendo energía, pero requiere lubricación y ajuste cada 500-1,000 km.
+        * **Banda:** Muy silenciosa y suave. No requiere lubricación (no ensucia) y se usa casi siempre en *Scooters* o motos tipo *Cruiser*.
+        * **Cardán:** Un eje rígido de acero (como en los autos). Es extremadamente durable y prácticamente libre de mantenimiento, reservado para motos de viaje de alta cilindrada.
+        """)
+
+    with st.expander("¿Qué son los modos de manejo o mapas de motor?"):
+        st.write("""
+        Es una tecnología electrónica que permite modificar el comportamiento de la motocicleta con solo presionar un botón.
+
+        Ejemplos comunes para explicar a un cliente:
+        * **Modo Urban/Rain:** Suaviza la entrega de potencia para evitar que la llanta trasera patine en superficies resbaladizas.
+        * **Modo Sport:** Libera toda la potencia y aceleración de forma inmediata para un manejo más entusiasta.
+        """)
+
+    with st.expander("¿Por qué es importante fijarse en la altura del asiento al suelo?"):
+        st.write("""
+        Generalmente medida en milímetros (ej. 790 mm), define la distancia desde la parte más baja del asiento hasta el piso.
+
+        Es un dato crítico de ergonomía para el vendedor: ayuda a perfilar si el cliente (especialmente primerizos o personas de baja estatura) podrá plantar ambos pies firmemente en el suelo al detenerse en un semáforo, dándole mayor confianza y seguridad física.
+        """)
+
+    with st.expander("¿Qué significa que las llantas sean Sellomatic (Tubeless o sin cámara)?"):
+        st.write("""
+        A diferencia de las llantas tradicionales con cámara interna (comunes en rines de rayos), las *Tubeless* sellan directamente contra el rin de aleación.
+
+        * **Ventaja comercial:** Si un clavo perfora la llanta, el aire se pierde de manera muy lenta, permitiendo al conductor rodar varios kilómetros de forma segura hasta una vulcanizadora en lugar de sufrir una ponchadura instantánea y peligrosa.
         """)
 
     with st.expander("¿Qué sistemas de arranque existen?"):
-
         st.write("""
-        El arranque es el método utilizado para encender
-        la motocicleta.
-
-        Los más comunes son:
-
-        • Eléctrico
-        • Pedal (kick)
-        • Combinado
-
-        El arranque eléctrico suele ser el más cómodo
-        para el usuario.
+        * **Eléctrico:** Enciende el motor presionando un botón en el manillar mediante el uso de la batería. Es el método estándar por comodidad.
+        * **De Pedal (Kickstart):** Requiere una patada física en una palanca mecánica. Es una excelente opción de respaldo si la batería se descarga.
         """)
+
+
+
+
 ###################################################################################################################################################################
 ###################################################################################################################################################################
 #endregion
-
 
 #region MODO 4 ACERCA DEL PROYECTO Y DEL AUTOR, MEDIOS DE CONTACTO
 
@@ -1235,6 +1199,144 @@ elif modo == "Acerca del proyecto":
 
 ###################################################################################################################################################################
 ###################################################################################################################################################################
+#endregion
+
+#region MODO 5 PRUEBA NETWORKS
+elif modo == "Red":
+    st.title("🌐 Módulo de Ciencia de Redes y Grafos")
+    st.write("Analiza la estructura del catálogo automotriz a través de modelos topológicos relacionales.")
+
+    # Estructura de pestañas actualizada para incorporar la red de marcas
+    tab1, tab2= st.tabs([
+        "🔗 Red de Similitud KNN (Física)", 
+        "🏢 Red de Competencia entre Marcas"
+    ])
+
+    # ==========================================
+    # PESTAÑA 1: RED DE SIMILITUD KNN
+    # ==========================================
+    with tab1:
+        st.header("Red Dirigida $K$-Nearest Neighbors ($K$-NN) de Similitud Técnica")
+        
+        with st.expander("📖 Glosario Técnico e Interpretación del Grafo", expanded=True):
+            st.markdown("""
+            ### ¿Qué es esta red?
+            Es un modelo topológico donde cada **nodo** representa una motocicleta y cada **enlace dirigido (flecha)** representa una relación de 
+            proximidad matemática. Está basada en el algoritmo **$K$-Nearest Neighbors ($K$-NN)**, el cual mapea cada vehículo en un espacio 
+            multidimensional utilizando sus variables numéricas clave (*cilindrada, potencia, torque, velocidad máxima, tanque y autonomía*). 
+            En términos prácticos, es el algoritmo subyacente que se utiliza para generar y mostrar las "motos sugeridas".
+
+            ### ¿Para qué sirve en el negocio?
+            Permite al asesor o analista identificar **alternativas directas de sustitución de producto**. Si un cliente busca un modelo específico 
+            pero no hay inventario, o si desea explorar una opción similar, la red revela de inmediato cuáles son sus competidores más cercanos en 
+            rendimiento real, yendo más allá de las etiquetas comerciales de las marcas.
+
+            ### ¿Cómo se interpreta el grafo y sus atributos visuales?
+            En esta red, las conexiones se ponderan mediante un factor de **peso** (con valores entre 0 y 1), el cual es directamente proporcional a la **similitud**:
+            
+            * **El grosor y tamaño de la flecha (Similitud):** El ancho de cada línea es directamente proporcional al peso de la conexión. Una flecha 
+            notablemente más gruesa indica una menor distancia euclidiana en el espacio de características, es decir, que ambos modelos son técnicamente muy 
+            idénticos en rendimiento y prestaciones.
+            * **Grado de entrada:** Es la cantidad de flechas que recibe una motocicleta. Representa cuántas otras motos del catálogo 
+            consideran a este modelo como uno de sus "vecinos más cercanos" y más similares.
+            * **El gradiente de color:** Los enlaces y nodos se tiñen según su grado de conexión:
+                * **Tonos fríos (Azul/Gris):** Modelos periféricos. Cuentan con especificaciones muy únicas o extremas; por lo tanto, casi ninguna 
+                otra moto se les asemeja.
+                * **Tonos cálidos (Rojo grisáceo/Rojo vivo):** Modelos **atractores**. Son motocicletas con configuraciones técnicas estándar y 
+                equilibradas. Al representar el "promedio óptimo" del mercado, múltiples modelos apuntan hacia ellas, convirtiéndolas en los pilares 
+                relacionales del catálogo.
+            """)
+
+        st.markdown("---")
+
+        ruta_mapa_png = "Redes/redimg/nearest-neig.png" 
+
+        if os.path.exists(ruta_mapa_png):
+            col_info, col_descarga = st.columns([3, 1])
+            with col_info:
+                st.info("💡 **Tip de exploración:** Haz clic en las flechas de la esquina de la imagen para expandir a **Pantalla Completa** y leer cómodamente las etiquetas de cada motocicleta.")
+            
+            with col_descarga:
+                with open(ruta_mapa_png, "rb") as file:
+                    st.download_button(
+                        label="📥 Descargar Mapa HD",
+                        data=file,
+                        file_name="nearest-neig.png",
+                        mime="image/png",
+                        use_container_width=True
+                    )
+            
+            with st.container(border=True):
+                st.image(
+                    ruta_mapa_png, 
+                    caption="Mapeo de Mercado: Directed K-NN Similarity Network (Gephi Layout)",
+                    use_container_width=True
+                )
+        else:
+            st.error("No se encontró el archivo visual en la ruta especificada.")
+            st.info(f"Verifica que el archivo exista en: `{ruta_mapa_png}`")
+
+    # ==========================================
+    # PESTAÑA 2: RED DE COMPETENCIA ENTRE MARCAS (NUEVA)
+    # ==========================================
+    with tab2:
+        st.header("Red No Dirigida de Competencia y Rivalidad de Mercado")
+        
+        with st.expander("📖 Glosario Técnico e Interpretación del Grafo de Marcas", expanded=True):
+            st.markdown("""
+            ### ¿Qué es esta red?
+            Es un modelo de abstracción macro donde los **nodos representan las marcas del mercado** y las **aristas (líneas)** representan una relación de competencia 
+            directa. Una conexión significa que ambas empresas ofrecen productos con características técnicas muy similares que se disputan los mismos clientes 
+            del catálogo. Basado en el modelo K-nn utilizado para las recomendaciones de modelos similares.
+            
+            ### ¿Para qué sirve en el negocio?
+            Permite realizar **análisis de inteligencia competitiva de forma visual**. Ayuda a los directores y analistas a identificar de inmediato qué 
+            marcas son rivales frontales en ingeniería, cuáles operan de forma aislada en nichos específicos, y dónde se concentran los clústeres de oferta del 
+            mercado automotriz.
+
+            ### ¿Cómo se interpretan los atributos visuales de esta red?
+            A diferencia de la red de similitus, este grafo es **no dirigido**, ya que la rivalidad comercial es mutua:
+            
+            * **El grosor del enlace (Intensidad de Competencia):** Representa el **número total de modelos similares** que 
+            cruzan las fronteras de ambas marcas. Un enlace notablemente grueso (por ejemplo, entre *Bajaj* y *Suzuki*) denota que tienen catálogos altamente 
+            superpuestos y compiten directamente en múltiples segmentos.
+            * **Grado de competencia (Degree):** Es la cantidad de rivales comerciales distintos con los que una marca se conecta directamente en el grafo. 
+            Por ejemplo, entre *Veloci* y *Suzuki* no existe enlace alguno, esto quiere decir mínima competencia ya que bajo nuestro modelo K-nn jamás aparecerá
+            recomendada una *Veloci* al visualizar una *Suzuki* y viceversa. 
+
+            """)
+
+        st.markdown("---")
+
+        # Ruta sugerida para tu exportación de Gephi de la red de marcas
+        ruta_mapa_marcas = "Redes/redimg/competencia.png"
+
+        if os.path.exists(ruta_mapa_marcas):
+            col_info_m, col_descarga_m = st.columns([3, 1])
+            with col_info_m:
+                st.info("💡 **Tip de exploración:** Expande el mapa a **Pantalla Completa** para analizar la densidad de los enlaces gruesos y ver qué marcas actúan como los núcleos o 'hubs' competitivos de tu catálogo.")
+            
+            with col_descarga_m:
+                with open(ruta_mapa_marcas, "rb") as file:
+                    st.download_button(
+                        label="📥 Descargar Mapa de Marcas",
+                        data=file,
+                        file_name="competencia-marcas.png",
+                        mime="image/png",
+                        use_container_width=True
+                    )
+            
+            with st.container(border=True):
+                st.image(
+                    ruta_mapa_marcas, 
+                    caption="Estructura de Competencia Industrial: Corporate Rivalry Network (Gephi Layout)",
+                    use_container_width=True
+                )
+        else:
+            st.error("No se encontró el plano visual de la red de marcas en la ruta especificada.")
+            st.info(f"Para visualizar este mapa, expórtalo desde Gephi como PNG con el nombre `competencia-marcas.png` y guárdalo en:\n`{ruta_mapa_marcas}`")
+
+
 #endregion
 
 #region FIRMA DEL CATALOGO ##########################
