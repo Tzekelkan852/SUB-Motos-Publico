@@ -1,0 +1,6 @@
+Source,Target,Weight,Type
+Bajaj,MB Motos,3,Undirected
+Bajaj,Suzuki,20,Undirected
+Bajaj,Veloci,13,Undirected
+MB Motos,Suzuki,7,Undirected
+MB Motos,Veloci,16,Undirected

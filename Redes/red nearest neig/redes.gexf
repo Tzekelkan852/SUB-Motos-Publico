@@ -1,0 +1,1166 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<gexf xmlns="http://gexf.net/1.3" version="1.3" xmlns:viz="http://gexf.net/1.3/viz" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://gexf.net/1.3 http://gexf.net/1.3/gexf.xsd">
+  <meta lastmodifieddate="2026-07-06">
+    <creator>Gephi 0.11.2</creator>
+    <title></title>
+    <description></description>
+  </meta>
+  <graph defaultedgetype="directed" mode="static">
+    <attributes class="node" mode="static">
+      <attribute id="marca" title="marca" type="string"/>
+      <attribute id="tipo" title="tipo" type="string"/>
+    </attributes>
+    <attributes class="edge" mode="static">
+      <attribute id="source_label" title="source_label" type="string"/>
+      <attribute id="target_label" title="target_label" type="string"/>
+    </attributes>
+    <nodes>
+      <node id="PULSAR N125 (2026)" label="PULSAR N125 (2026)">
+        <attvalues>
+          <attvalue for="marca" value="Bajaj"/>
+          <attvalue for="tipo" value="Moto Deportiva"/>
+        </attvalues>
+        <viz:size value="10.0"/>
+        <viz:position x="101.42203" y="-357.2478"/>
+        <viz:color r="138" g="208" b="187"/>
+      </node>
+      <node id="PULSAR N250 CARB (2026)" label="PULSAR N250 CARB (2026)">
+        <attvalues>
+          <attvalue for="marca" value="Bajaj"/>
+          <attvalue for="tipo" value="Moto Deportiva"/>
+        </attvalues>
+        <viz:size value="10.0"/>
+        <viz:position x="225.44748" y="556.3099"/>
+        <viz:color r="74" g="170" b="131"/>
+      </node>
+      <node id="TEKKEN 250 R (2026)" label="TEKKEN 250 R (2026)">
+        <attvalues>
+          <attvalue for="marca" value="MB Motos"/>
+          <attvalue for="tipo" value="Moto Doble P."/>
+        </attvalues>
+        <viz:size value="10.0"/>
+        <viz:position x="-339.50516" y="137.22568"/>
+        <viz:color r="114" g="198" b="171"/>
+      </node>
+      <node id="TEKKEN 300 PE (2026)" label="TEKKEN 300 PE (2026)">
+        <attvalues>
+          <attvalue for="marca" value="MB Motos"/>
+          <attvalue for="tipo" value="Motocicleta Urbana"/>
+        </attvalues>
+        <viz:size value="10.0"/>
+        <viz:position x="-574.9114" y="162.87744"/>
+        <viz:color r="138" g="208" b="187"/>
+      </node>
+      <node id="DR150 (2026)" label="DR150 (2026)">
+        <attvalues>
+          <attvalue for="marca" value="Suzuki"/>
+          <attvalue for="tipo" value="Moto Doble P."/>
+        </attvalues>
+        <viz:size value="10.0"/>
+        <viz:position x="-11.461324" y="-146.27115"/>
+        <viz:color r="114" g="198" b="171"/>
+      </node>
+      <node id="GIXXER 250 (2026)" label="GIXXER 250 (2026)">
+        <attvalues>
+          <attvalue for="marca" value="Suzuki"/>
+          <attvalue for="tipo" value="Moto Deportiva"/>
+        </attvalues>
+        <viz:size value="10.0"/>
+        <viz:position x="-245.15105" y="543.1947"/>
+        <viz:color r="92" g="186" b="153"/>
+      </node>
+      <node id="GIXXER SF 250 (2026)" label="GIXXER SF 250 (2026)">
+        <attvalues>
+          <attvalue for="marca" value="Suzuki"/>
+          <attvalue for="tipo" value="Moto Deportiva"/>
+        </attvalues>
+        <viz:size value="10.0"/>
+        <viz:position x="553.16437" y="237.98663"/>
+        <viz:color r="114" g="198" b="171"/>
+      </node>
+      <node id="RAZZER GTR 220 R (2026)" label="RAZZER GTR 220 R (2026)">
+        <attvalues>
+          <attvalue for="marca" value="Veloci"/>
+          <attvalue for="tipo" value="Moto Deportiva"/>
+        </attvalues>
+        <viz:size value="10.0"/>
+        <viz:position x="-559.55444" y="-80.47615"/>
+        <viz:color r="74" g="170" b="131"/>
+      </node>
+      <node id="XEVERUS EVO ADVENTURE 330 R (2026)" label="XEVERUS EVO ADVENTURE 330 R (2026)">
+        <attvalues>
+          <attvalue for="marca" value="Veloci"/>
+          <attvalue for="tipo" value="Moto Doble P."/>
+        </attvalues>
+        <viz:size value="10.0"/>
+        <viz:position x="135.07893" y="304.85165"/>
+        <viz:color r="212" g="238" b="235"/>
+      </node>
+      <node id="THYRON EVO SPORT 200 R (2026)" label="THYRON EVO SPORT 200 R (2026)">
+        <attvalues>
+          <attvalue for="marca" value="Veloci"/>
+          <attvalue for="tipo" value="Motoneta"/>
+        </attvalues>
+        <viz:size value="10.0"/>
+        <viz:position x="358.998" y="89.973076"/>
+        <viz:color r="163" g="218" b="203"/>
+      </node>
+      <node id="BREAKSTORM EVO SPORT 330 R (2026)" label="BREAKSTORM EVO SPORT 330 R (2026)">
+        <attvalues>
+          <attvalue for="marca" value="Veloci"/>
+          <attvalue for="tipo" value="Motocicleta Urbana"/>
+        </attvalues>
+        <viz:size value="10.0"/>
+        <viz:position x="581.89923" y="-24.818745"/>
+        <viz:color r="237" g="248" b="251"/>
+      </node>
+      <node id="REVENGE DYNAMIK 220 R (2026)" label="REVENGE DYNAMIK 220 R (2026)">
+        <attvalues>
+          <attvalue for="marca" value="Veloci"/>
+          <attvalue for="tipo" value="Moto Doble P."/>
+        </attvalues>
+        <viz:size value="10.0"/>
+        <viz:position x="283.1491" y="-167.48953"/>
+        <viz:color r="55" g="155" b="109"/>
+      </node>
+      <node id="SNAKE GT TRAIL 250 RR (2026)" label="SNAKE GT TRAIL 250 RR (2026)">
+        <attvalues>
+          <attvalue for="marca" value="Veloci"/>
+          <attvalue for="tipo" value="Motocicleta Urbana"/>
+        </attvalues>
+        <viz:size value="10.0"/>
+        <viz:position x="382.87576" y="390.09106"/>
+        <viz:color r="114" g="198" b="171"/>
+      </node>
+      <node id="QUAD XL FORCE 200 R (2026)" label="QUAD XL FORCE 200 R (2026)">
+        <attvalues>
+          <attvalue for="marca" value="Veloci"/>
+          <attvalue for="tipo" value="Cuatrimoto"/>
+        </attvalues>
+        <viz:size value="10.0"/>
+        <viz:position x="-433.7713" y="380.35138"/>
+        <viz:color r="187" g="228" b="219"/>
+      </node>
+      <node id="VSTROM 160 (2027)" label="VSTROM 160 (2027)">
+        <attvalues>
+          <attvalue for="marca" value="Suzuki"/>
+          <attvalue for="tipo" value="Moto Doble P."/>
+        </attvalues>
+        <viz:size value="10.0"/>
+        <viz:position x="-335.26385" y="-498.5044"/>
+        <viz:color r="114" g="198" b="171"/>
+      </node>
+      <node id="VSTROM 160 (2026)" label="VSTROM 160 (2026)">
+        <attvalues>
+          <attvalue for="marca" value="Suzuki"/>
+          <attvalue for="tipo" value="Moto Doble P."/>
+        </attvalues>
+        <viz:size value="10.0"/>
+        <viz:position x="-495.67416" y="-311.1898"/>
+        <viz:color r="163" g="218" b="203"/>
+      </node>
+      <node id="VSTROM 250 SX (2026)" label="VSTROM 250 SX (2026)">
+        <attvalues>
+          <attvalue for="marca" value="Suzuki"/>
+          <attvalue for="tipo" value="Moto Doble P."/>
+        </attvalues>
+        <viz:size value="10.0"/>
+        <viz:position x="-4.396655" y="562.71545"/>
+        <viz:color r="18" g="124" b="65"/>
+      </node>
+      <node id="PULSAR N160 (2026)" label="PULSAR N160 (2026)">
+        <attvalues>
+          <attvalue for="marca" value="Bajaj"/>
+          <attvalue for="tipo" value="Moto Deportiva"/>
+        </attvalues>
+        <viz:size value="10.0"/>
+        <viz:position x="160.2185" y="-580.9217"/>
+        <viz:color r="37" g="139" b="87"/>
+      </node>
+      <node id="PULSAR NS 400Z (2026)" label="PULSAR NS 400Z (2026)">
+        <attvalues>
+          <attvalue for="marca" value="Bajaj"/>
+          <attvalue for="tipo" value="Moto Deportiva"/>
+        </attvalues>
+        <viz:size value="10.0"/>
+        <viz:position x="525.60376" y="-252.99579"/>
+        <viz:color r="237" g="248" b="251"/>
+      </node>
+      <node id="PULSAR N250 FI (2026)" label="PULSAR N250 FI (2026)">
+        <attvalues>
+          <attvalue for="marca" value="Bajaj"/>
+          <attvalue for="tipo" value="Moto Deportiva"/>
+        </attvalues>
+        <viz:size value="10.0"/>
+        <viz:position x="-103.21561" y="95.2962"/>
+        <viz:color r="92" g="186" b="153"/>
+      </node>
+      <node id="NORDICA 300 (2026)" label="NORDICA 300 (2026)">
+        <attvalues>
+          <attvalue for="marca" value="MB Motos"/>
+          <attvalue for="tipo" value="Moto Doble P."/>
+        </attvalues>
+        <viz:size value="10.0"/>
+        <viz:position x="133.67097" y="61.815407"/>
+        <viz:color r="74" g="170" b="131"/>
+      </node>
+      <node id="DEUS EVO SPORT 150R (2026)" label="DEUS EVO SPORT 150R (2026)">
+        <attvalues>
+          <attvalue for="marca" value="Veloci"/>
+          <attvalue for="tipo" value="Motocicleta Urbana"/>
+        </attvalues>
+        <viz:size value="10.0"/>
+        <viz:position x="-92.12919" y="-574.2601"/>
+        <viz:color r="138" g="208" b="187"/>
+      </node>
+      <node id="RUBAK EVO TRAIL 220R (2026)" label="RUBAK EVO TRAIL 220R (2026)">
+        <attvalues>
+          <attvalue for="marca" value="Veloci"/>
+          <attvalue for="tipo" value="Moto Doble P."/>
+        </attvalues>
+        <viz:size value="10.0"/>
+        <viz:position x="-175.49545" y="-317.9363"/>
+        <viz:color r="0" g="109" b="44"/>
+      </node>
+      <node id="DRS PERFORMANCE 300 (2026)" label="DRS PERFORMANCE 300 (2026)">
+        <attvalues>
+          <attvalue for="marca" value="MB Motos"/>
+          <attvalue for="tipo" value="Moto Doble P."/>
+        </attvalues>
+        <viz:size value="10.0"/>
+        <viz:position x="-304.89682" y="-110.89821"/>
+        <viz:color r="138" g="208" b="187"/>
+      </node>
+      <node id="RX 175 GT LINE (2026)" label="RX 175 GT LINE (2026)">
+        <attvalues>
+          <attvalue for="marca" value="MB Motos"/>
+          <attvalue for="tipo" value="Motoneta"/>
+        </attvalues>
+        <viz:size value="10.0"/>
+        <viz:position x="-131.88104" y="329.268"/>
+        <viz:color r="187" g="228" b="219"/>
+      </node>
+      <node id="SUPER 7 PE 250 (2026)" label="SUPER 7 PE 250 (2026)">
+        <attvalues>
+          <attvalue for="marca" value="MB Motos"/>
+          <attvalue for="tipo" value="Chopper"/>
+        </attvalues>
+        <viz:size value="10.0"/>
+        <viz:position x="365.7794" y="-428.94693"/>
+        <viz:color r="74" g="170" b="131"/>
+      </node>
+    </nodes>
+    <edges>
+      <edge id="130" source="PULSAR N125 (2026)" target="DR150 (2026)" weight="0.3674">
+        <viz:color r="177" g="224" b="212" a="0.99607843"/>
+        <attvalues>
+          <attvalue for="source_label" value="PULSAR N125 (2026)"/>
+          <attvalue for="target_label" value="DR150 (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="131" source="PULSAR N125 (2026)" target="VSTROM 160 (2027)" weight="0.3566">
+        <viz:color r="181" g="225" b="215"/>
+        <attvalues>
+          <attvalue for="source_label" value="PULSAR N125 (2026)"/>
+          <attvalue for="target_label" value="VSTROM 160 (2027)"/>
+        </attvalues>
+      </edge>
+      <edge id="132" source="PULSAR N125 (2026)" target="VSTROM 160 (2026)" weight="0.3566">
+        <viz:color r="181" g="225" b="215"/>
+        <attvalues>
+          <attvalue for="source_label" value="PULSAR N125 (2026)"/>
+          <attvalue for="target_label" value="VSTROM 160 (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="133" source="PULSAR N125 (2026)" target="PULSAR N160 (2026)" weight="0.351">
+        <viz:color r="183" g="226" b="216"/>
+        <attvalues>
+          <attvalue for="source_label" value="PULSAR N125 (2026)"/>
+          <attvalue for="target_label" value="PULSAR N160 (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="134" source="PULSAR N125 (2026)" target="DEUS EVO SPORT 150R (2026)" weight="0.2957">
+        <viz:color r="201" g="233" b="228"/>
+        <attvalues>
+          <attvalue for="source_label" value="PULSAR N125 (2026)"/>
+          <attvalue for="target_label" value="DEUS EVO SPORT 150R (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="135" source="PULSAR N250 CARB (2026)" target="PULSAR N250 FI (2026)" weight="0.5315">
+        <viz:color r="123" g="202" b="177"/>
+        <attvalues>
+          <attvalue for="source_label" value="PULSAR N250 CARB (2026)"/>
+          <attvalue for="target_label" value="PULSAR N250 FI (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="136" source="PULSAR N250 CARB (2026)" target="SNAKE GT TRAIL 250 RR (2026)" weight="0.4962">
+        <viz:color r="134" g="207" b="185"/>
+        <attvalues>
+          <attvalue for="source_label" value="PULSAR N250 CARB (2026)"/>
+          <attvalue for="target_label" value="SNAKE GT TRAIL 250 RR (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="137" source="PULSAR N250 CARB (2026)" target="VSTROM 250 SX (2026)" weight="0.4656">
+        <viz:color r="144" g="211" b="191"/>
+        <attvalues>
+          <attvalue for="source_label" value="PULSAR N250 CARB (2026)"/>
+          <attvalue for="target_label" value="VSTROM 250 SX (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="138" source="PULSAR N250 CARB (2026)" target="GIXXER 250 (2026)" weight="0.4217">
+        <viz:color r="159" g="217" b="201"/>
+        <attvalues>
+          <attvalue for="source_label" value="PULSAR N250 CARB (2026)"/>
+          <attvalue for="target_label" value="GIXXER 250 (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="139" source="PULSAR N250 CARB (2026)" target="GIXXER SF 250 (2026)" weight="0.3981">
+        <viz:color r="167" g="220" b="206"/>
+        <attvalues>
+          <attvalue for="source_label" value="PULSAR N250 CARB (2026)"/>
+          <attvalue for="target_label" value="GIXXER SF 250 (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="140" source="TEKKEN 250 R (2026)" target="SUPER 7 PE 250 (2026)" weight="0.5446">
+        <viz:color r="118" g="200" b="174"/>
+        <attvalues>
+          <attvalue for="source_label" value="TEKKEN 250 R (2026)"/>
+          <attvalue for="target_label" value="SUPER 7 PE 250 (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="141" source="TEKKEN 250 R (2026)" target="RUBAK EVO TRAIL 220R (2026)" weight="0.4314">
+        <viz:color r="156" g="215" b="199"/>
+        <attvalues>
+          <attvalue for="source_label" value="TEKKEN 250 R (2026)"/>
+          <attvalue for="target_label" value="RUBAK EVO TRAIL 220R (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="142" source="TEKKEN 250 R (2026)" target="DRS PERFORMANCE 300 (2026)" weight="0.3874">
+        <viz:color r="170" g="221" b="208"/>
+        <attvalues>
+          <attvalue for="source_label" value="TEKKEN 250 R (2026)"/>
+          <attvalue for="target_label" value="DRS PERFORMANCE 300 (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="143" source="TEKKEN 250 R (2026)" target="TEKKEN 300 PE (2026)" weight="0.3676">
+        <viz:color r="177" g="224" b="212"/>
+        <attvalues>
+          <attvalue for="source_label" value="TEKKEN 250 R (2026)"/>
+          <attvalue for="target_label" value="TEKKEN 300 PE (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="144" source="TEKKEN 250 R (2026)" target="REVENGE DYNAMIK 220 R (2026)" weight="0.3373">
+        <viz:color r="187" g="228" b="219"/>
+        <attvalues>
+          <attvalue for="source_label" value="TEKKEN 250 R (2026)"/>
+          <attvalue for="target_label" value="REVENGE DYNAMIK 220 R (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="145" source="TEKKEN 300 PE (2026)" target="DRS PERFORMANCE 300 (2026)" weight="0.4128">
+        <viz:color r="162" g="218" b="203"/>
+        <attvalues>
+          <attvalue for="source_label" value="TEKKEN 300 PE (2026)"/>
+          <attvalue for="target_label" value="DRS PERFORMANCE 300 (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="146" source="TEKKEN 300 PE (2026)" target="TEKKEN 250 R (2026)" weight="0.3676">
+        <viz:color r="177" g="224" b="212"/>
+        <attvalues>
+          <attvalue for="source_label" value="TEKKEN 300 PE (2026)"/>
+          <attvalue for="target_label" value="TEKKEN 250 R (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="147" source="TEKKEN 300 PE (2026)" target="NORDICA 300 (2026)" weight="0.342">
+        <viz:color r="186" g="227" b="218"/>
+        <attvalues>
+          <attvalue for="source_label" value="TEKKEN 300 PE (2026)"/>
+          <attvalue for="target_label" value="NORDICA 300 (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="148" source="TEKKEN 300 PE (2026)" target="SUPER 7 PE 250 (2026)" weight="0.3378">
+        <viz:color r="187" g="228" b="219"/>
+        <attvalues>
+          <attvalue for="source_label" value="TEKKEN 300 PE (2026)"/>
+          <attvalue for="target_label" value="SUPER 7 PE 250 (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="149" source="TEKKEN 300 PE (2026)" target="VSTROM 250 SX (2026)" weight="0.3079">
+        <viz:color r="197" g="232" b="225"/>
+        <attvalues>
+          <attvalue for="source_label" value="TEKKEN 300 PE (2026)"/>
+          <attvalue for="target_label" value="VSTROM 250 SX (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="150" source="DR150 (2026)" target="PULSAR N160 (2026)" weight="0.4704">
+        <viz:color r="143" g="210" b="190"/>
+        <attvalues>
+          <attvalue for="source_label" value="DR150 (2026)"/>
+          <attvalue for="target_label" value="PULSAR N160 (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="151" source="DR150 (2026)" target="VSTROM 160 (2026)" weight="0.4664">
+        <viz:color r="144" g="211" b="191"/>
+        <attvalues>
+          <attvalue for="source_label" value="DR150 (2026)"/>
+          <attvalue for="target_label" value="VSTROM 160 (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="152" source="DR150 (2026)" target="VSTROM 160 (2027)" weight="0.4664">
+        <viz:color r="144" g="211" b="191"/>
+        <attvalues>
+          <attvalue for="source_label" value="DR150 (2026)"/>
+          <attvalue for="target_label" value="VSTROM 160 (2027)"/>
+        </attvalues>
+      </edge>
+      <edge id="153" source="DR150 (2026)" target="PULSAR N125 (2026)" weight="0.3674">
+        <viz:color r="177" g="224" b="212" a="0.99607843"/>
+        <attvalues>
+          <attvalue for="source_label" value="DR150 (2026)"/>
+          <attvalue for="target_label" value="PULSAR N125 (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="154" source="DR150 (2026)" target="RUBAK EVO TRAIL 220R (2026)" weight="0.3121">
+        <viz:color r="196" g="231" b="224"/>
+        <attvalues>
+          <attvalue for="source_label" value="DR150 (2026)"/>
+          <attvalue for="target_label" value="RUBAK EVO TRAIL 220R (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="155" source="GIXXER 250 (2026)" target="GIXXER SF 250 (2026)" weight="0.7777">
+        <viz:color r="55" g="155" b="109"/>
+        <attvalues>
+          <attvalue for="source_label" value="GIXXER 250 (2026)"/>
+          <attvalue for="target_label" value="GIXXER SF 250 (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="156" source="GIXXER 250 (2026)" target="VSTROM 250 SX (2026)" weight="0.4981">
+        <viz:color r="134" g="206" b="184"/>
+        <attvalues>
+          <attvalue for="source_label" value="GIXXER 250 (2026)"/>
+          <attvalue for="target_label" value="VSTROM 250 SX (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="157" source="GIXXER 250 (2026)" target="PULSAR N250 CARB (2026)" weight="0.4217">
+        <viz:color r="159" g="217" b="201"/>
+        <attvalues>
+          <attvalue for="source_label" value="GIXXER 250 (2026)"/>
+          <attvalue for="target_label" value="PULSAR N250 CARB (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="158" source="GIXXER 250 (2026)" target="NORDICA 300 (2026)" weight="0.3574">
+        <viz:color r="180" g="225" b="214"/>
+        <attvalues>
+          <attvalue for="source_label" value="GIXXER 250 (2026)"/>
+          <attvalue for="target_label" value="NORDICA 300 (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="159" source="GIXXER 250 (2026)" target="PULSAR N250 FI (2026)" weight="0.3399">
+        <viz:color r="186" g="227" b="218"/>
+        <attvalues>
+          <attvalue for="source_label" value="GIXXER 250 (2026)"/>
+          <attvalue for="target_label" value="PULSAR N250 FI (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="160" source="GIXXER SF 250 (2026)" target="GIXXER 250 (2026)" weight="0.7777">
+        <viz:color r="55" g="155" b="109"/>
+        <attvalues>
+          <attvalue for="source_label" value="GIXXER SF 250 (2026)"/>
+          <attvalue for="target_label" value="GIXXER 250 (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="161" source="GIXXER SF 250 (2026)" target="VSTROM 250 SX (2026)" weight="0.5086">
+        <viz:color r="130" g="205" b="182"/>
+        <attvalues>
+          <attvalue for="source_label" value="GIXXER SF 250 (2026)"/>
+          <attvalue for="target_label" value="VSTROM 250 SX (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="162" source="GIXXER SF 250 (2026)" target="PULSAR N250 CARB (2026)" weight="0.3981">
+        <viz:color r="167" g="220" b="206"/>
+        <attvalues>
+          <attvalue for="source_label" value="GIXXER SF 250 (2026)"/>
+          <attvalue for="target_label" value="PULSAR N250 CARB (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="163" source="GIXXER SF 250 (2026)" target="NORDICA 300 (2026)" weight="0.3833">
+        <viz:color r="172" g="222" b="209"/>
+        <attvalues>
+          <attvalue for="source_label" value="GIXXER SF 250 (2026)"/>
+          <attvalue for="target_label" value="NORDICA 300 (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="164" source="GIXXER SF 250 (2026)" target="PULSAR N250 FI (2026)" weight="0.3165">
+        <viz:color r="194" g="231" b="223"/>
+        <attvalues>
+          <attvalue for="source_label" value="GIXXER SF 250 (2026)"/>
+          <attvalue for="target_label" value="PULSAR N250 FI (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="165" source="RAZZER GTR 220 R (2026)" target="SNAKE GT TRAIL 250 RR (2026)" weight="0.5331">
+        <viz:color r="122" g="202" b="177"/>
+        <attvalues>
+          <attvalue for="source_label" value="RAZZER GTR 220 R (2026)"/>
+          <attvalue for="target_label" value="SNAKE GT TRAIL 250 RR (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="166" source="RAZZER GTR 220 R (2026)" target="RUBAK EVO TRAIL 220R (2026)" weight="0.3999">
+        <viz:color r="166" g="219" b="205"/>
+        <attvalues>
+          <attvalue for="source_label" value="RAZZER GTR 220 R (2026)"/>
+          <attvalue for="target_label" value="RUBAK EVO TRAIL 220R (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="167" source="RAZZER GTR 220 R (2026)" target="PULSAR N250 CARB (2026)" weight="0.3617">
+        <viz:color r="179" g="225" b="213"/>
+        <attvalues>
+          <attvalue for="source_label" value="RAZZER GTR 220 R (2026)"/>
+          <attvalue for="target_label" value="PULSAR N250 CARB (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="168" source="RAZZER GTR 220 R (2026)" target="PULSAR N250 FI (2026)" weight="0.3608">
+        <viz:color r="179" g="225" b="214"/>
+        <attvalues>
+          <attvalue for="source_label" value="RAZZER GTR 220 R (2026)"/>
+          <attvalue for="target_label" value="PULSAR N250 FI (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="169" source="RAZZER GTR 220 R (2026)" target="PULSAR N160 (2026)" weight="0.3582">
+        <viz:color r="180" g="225" b="214"/>
+        <attvalues>
+          <attvalue for="source_label" value="RAZZER GTR 220 R (2026)"/>
+          <attvalue for="target_label" value="PULSAR N160 (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="170" source="XEVERUS EVO ADVENTURE 330 R (2026)" target="SUPER 7 PE 250 (2026)" weight="0.3586">
+        <viz:color r="180" g="225" b="214"/>
+        <attvalues>
+          <attvalue for="source_label" value="XEVERUS EVO ADVENTURE 330 R (2026)"/>
+          <attvalue for="target_label" value="SUPER 7 PE 250 (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="171" source="XEVERUS EVO ADVENTURE 330 R (2026)" target="REVENGE DYNAMIK 220 R (2026)" weight="0.3301">
+        <viz:color r="190" g="229" b="220"/>
+        <attvalues>
+          <attvalue for="source_label" value="XEVERUS EVO ADVENTURE 330 R (2026)"/>
+          <attvalue for="target_label" value="REVENGE DYNAMIK 220 R (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="172" source="XEVERUS EVO ADVENTURE 330 R (2026)" target="TEKKEN 250 R (2026)" weight="0.3275">
+        <viz:color r="190" g="229" b="221"/>
+        <attvalues>
+          <attvalue for="source_label" value="XEVERUS EVO ADVENTURE 330 R (2026)"/>
+          <attvalue for="target_label" value="TEKKEN 250 R (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="173" source="XEVERUS EVO ADVENTURE 330 R (2026)" target="NORDICA 300 (2026)" weight="0.3086">
+        <viz:color r="197" g="232" b="225"/>
+        <attvalues>
+          <attvalue for="source_label" value="XEVERUS EVO ADVENTURE 330 R (2026)"/>
+          <attvalue for="target_label" value="NORDICA 300 (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="174" source="XEVERUS EVO ADVENTURE 330 R (2026)" target="RUBAK EVO TRAIL 220R (2026)" weight="0.3065">
+        <viz:color r="197" g="232" b="225"/>
+        <attvalues>
+          <attvalue for="source_label" value="XEVERUS EVO ADVENTURE 330 R (2026)"/>
+          <attvalue for="target_label" value="RUBAK EVO TRAIL 220R (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="175" source="THYRON EVO SPORT 200 R (2026)" target="QUAD XL FORCE 200 R (2026)" weight="0.3532">
+        <viz:color r="182" g="226" b="215"/>
+        <attvalues>
+          <attvalue for="source_label" value="THYRON EVO SPORT 200 R (2026)"/>
+          <attvalue for="target_label" value="QUAD XL FORCE 200 R (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="176" source="THYRON EVO SPORT 200 R (2026)" target="REVENGE DYNAMIK 220 R (2026)" weight="0.3377">
+        <viz:color r="187" g="228" b="219"/>
+        <attvalues>
+          <attvalue for="source_label" value="THYRON EVO SPORT 200 R (2026)"/>
+          <attvalue for="target_label" value="REVENGE DYNAMIK 220 R (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="177" source="THYRON EVO SPORT 200 R (2026)" target="RX 175 GT LINE (2026)" weight="0.333">
+        <viz:color r="189" g="228" b="220"/>
+        <attvalues>
+          <attvalue for="source_label" value="THYRON EVO SPORT 200 R (2026)"/>
+          <attvalue for="target_label" value="RX 175 GT LINE (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="178" source="THYRON EVO SPORT 200 R (2026)" target="SUPER 7 PE 250 (2026)" weight="0.2999">
+        <viz:color r="200" g="233" b="227"/>
+        <attvalues>
+          <attvalue for="source_label" value="THYRON EVO SPORT 200 R (2026)"/>
+          <attvalue for="target_label" value="SUPER 7 PE 250 (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="179" source="THYRON EVO SPORT 200 R (2026)" target="RUBAK EVO TRAIL 220R (2026)" weight="0.284">
+        <viz:color r="205" g="235" b="230"/>
+        <attvalues>
+          <attvalue for="source_label" value="THYRON EVO SPORT 200 R (2026)"/>
+          <attvalue for="target_label" value="RUBAK EVO TRAIL 220R (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="180" source="BREAKSTORM EVO SPORT 330 R (2026)" target="PULSAR N250 FI (2026)" weight="0.2279">
+        <viz:color r="224" g="242" b="242"/>
+        <attvalues>
+          <attvalue for="source_label" value="BREAKSTORM EVO SPORT 330 R (2026)"/>
+          <attvalue for="target_label" value="PULSAR N250 FI (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="181" source="BREAKSTORM EVO SPORT 330 R (2026)" target="SNAKE GT TRAIL 250 RR (2026)" weight="0.2167">
+        <viz:color r="227" g="244" b="245"/>
+        <attvalues>
+          <attvalue for="source_label" value="BREAKSTORM EVO SPORT 330 R (2026)"/>
+          <attvalue for="target_label" value="SNAKE GT TRAIL 250 RR (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="182" source="BREAKSTORM EVO SPORT 330 R (2026)" target="RAZZER GTR 220 R (2026)" weight="0.214">
+        <viz:color r="228" g="244" b="245"/>
+        <attvalues>
+          <attvalue for="source_label" value="BREAKSTORM EVO SPORT 330 R (2026)"/>
+          <attvalue for="target_label" value="RAZZER GTR 220 R (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="183" source="BREAKSTORM EVO SPORT 330 R (2026)" target="PULSAR N250 CARB (2026)" weight="0.2125">
+        <viz:color r="229" g="244" b="245"/>
+        <attvalues>
+          <attvalue for="source_label" value="BREAKSTORM EVO SPORT 330 R (2026)"/>
+          <attvalue for="target_label" value="PULSAR N250 CARB (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="184" source="BREAKSTORM EVO SPORT 330 R (2026)" target="DRS PERFORMANCE 300 (2026)" weight="0.1892">
+        <viz:color r="237" g="248" b="251"/>
+        <attvalues>
+          <attvalue for="source_label" value="BREAKSTORM EVO SPORT 330 R (2026)"/>
+          <attvalue for="target_label" value="DRS PERFORMANCE 300 (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="185" source="REVENGE DYNAMIK 220 R (2026)" target="RUBAK EVO TRAIL 220R (2026)" weight="0.4372">
+        <viz:color r="154" g="214" b="197"/>
+        <attvalues>
+          <attvalue for="source_label" value="REVENGE DYNAMIK 220 R (2026)"/>
+          <attvalue for="target_label" value="RUBAK EVO TRAIL 220R (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="186" source="REVENGE DYNAMIK 220 R (2026)" target="DEUS EVO SPORT 150R (2026)" weight="0.3953">
+        <viz:color r="168" g="220" b="206"/>
+        <attvalues>
+          <attvalue for="source_label" value="REVENGE DYNAMIK 220 R (2026)"/>
+          <attvalue for="target_label" value="DEUS EVO SPORT 150R (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="187" source="REVENGE DYNAMIK 220 R (2026)" target="SUPER 7 PE 250 (2026)" weight="0.3922">
+        <viz:color r="169" g="220" b="207"/>
+        <attvalues>
+          <attvalue for="source_label" value="REVENGE DYNAMIK 220 R (2026)"/>
+          <attvalue for="target_label" value="SUPER 7 PE 250 (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="188" source="REVENGE DYNAMIK 220 R (2026)" target="PULSAR N160 (2026)" weight="0.3761">
+        <viz:color r="174" g="223" b="210"/>
+        <attvalues>
+          <attvalue for="source_label" value="REVENGE DYNAMIK 220 R (2026)"/>
+          <attvalue for="target_label" value="PULSAR N160 (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="189" source="REVENGE DYNAMIK 220 R (2026)" target="THYRON EVO SPORT 200 R (2026)" weight="0.3377">
+        <viz:color r="187" g="228" b="219"/>
+        <attvalues>
+          <attvalue for="source_label" value="REVENGE DYNAMIK 220 R (2026)"/>
+          <attvalue for="target_label" value="THYRON EVO SPORT 200 R (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="190" source="SNAKE GT TRAIL 250 RR (2026)" target="RAZZER GTR 220 R (2026)" weight="0.5331">
+        <viz:color r="122" g="202" b="177"/>
+        <attvalues>
+          <attvalue for="source_label" value="SNAKE GT TRAIL 250 RR (2026)"/>
+          <attvalue for="target_label" value="RAZZER GTR 220 R (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="191" source="SNAKE GT TRAIL 250 RR (2026)" target="PULSAR N250 CARB (2026)" weight="0.4962">
+        <viz:color r="134" g="207" b="185"/>
+        <attvalues>
+          <attvalue for="source_label" value="SNAKE GT TRAIL 250 RR (2026)"/>
+          <attvalue for="target_label" value="PULSAR N250 CARB (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="192" source="SNAKE GT TRAIL 250 RR (2026)" target="PULSAR N250 FI (2026)" weight="0.4442">
+        <viz:color r="152" g="214" b="196"/>
+        <attvalues>
+          <attvalue for="source_label" value="SNAKE GT TRAIL 250 RR (2026)"/>
+          <attvalue for="target_label" value="PULSAR N250 FI (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="193" source="SNAKE GT TRAIL 250 RR (2026)" target="RUBAK EVO TRAIL 220R (2026)" weight="0.394">
+        <viz:color r="168" g="220" b="207"/>
+        <attvalues>
+          <attvalue for="source_label" value="SNAKE GT TRAIL 250 RR (2026)"/>
+          <attvalue for="target_label" value="RUBAK EVO TRAIL 220R (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="194" source="SNAKE GT TRAIL 250 RR (2026)" target="VSTROM 250 SX (2026)" weight="0.3665">
+        <viz:color r="177" g="224" b="212"/>
+        <attvalues>
+          <attvalue for="source_label" value="SNAKE GT TRAIL 250 RR (2026)"/>
+          <attvalue for="target_label" value="VSTROM 250 SX (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="195" source="QUAD XL FORCE 200 R (2026)" target="THYRON EVO SPORT 200 R (2026)" weight="0.3532">
+        <viz:color r="182" g="226" b="215"/>
+        <attvalues>
+          <attvalue for="source_label" value="QUAD XL FORCE 200 R (2026)"/>
+          <attvalue for="target_label" value="THYRON EVO SPORT 200 R (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="196" source="QUAD XL FORCE 200 R (2026)" target="REVENGE DYNAMIK 220 R (2026)" weight="0.3318">
+        <viz:color r="189" g="229" b="220"/>
+        <attvalues>
+          <attvalue for="source_label" value="QUAD XL FORCE 200 R (2026)"/>
+          <attvalue for="target_label" value="REVENGE DYNAMIK 220 R (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="197" source="QUAD XL FORCE 200 R (2026)" target="DEUS EVO SPORT 150R (2026)" weight="0.2859">
+        <viz:color r="204" g="235" b="230"/>
+        <attvalues>
+          <attvalue for="source_label" value="QUAD XL FORCE 200 R (2026)"/>
+          <attvalue for="target_label" value="DEUS EVO SPORT 150R (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="198" source="QUAD XL FORCE 200 R (2026)" target="RX 175 GT LINE (2026)" weight="0.2671">
+        <viz:color r="211" g="237" b="234"/>
+        <attvalues>
+          <attvalue for="source_label" value="QUAD XL FORCE 200 R (2026)"/>
+          <attvalue for="target_label" value="RX 175 GT LINE (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="199" source="QUAD XL FORCE 200 R (2026)" target="RUBAK EVO TRAIL 220R (2026)" weight="0.2599">
+        <viz:color r="213" g="238" b="235" a="0.99607843"/>
+        <attvalues>
+          <attvalue for="source_label" value="QUAD XL FORCE 200 R (2026)"/>
+          <attvalue for="target_label" value="RUBAK EVO TRAIL 220R (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="200" source="VSTROM 160 (2027)" target="VSTROM 160 (2027)">
+        <viz:color r="0" g="109" b="44"/>
+        <attvalues>
+          <attvalue for="source_label" value="VSTROM 160 (2027)"/>
+          <attvalue for="target_label" value="VSTROM 160 (2027)"/>
+        </attvalues>
+      </edge>
+      <edge id="201" source="VSTROM 160 (2027)" target="DR150 (2026)" weight="0.4664">
+        <viz:color r="144" g="211" b="191"/>
+        <attvalues>
+          <attvalue for="source_label" value="VSTROM 160 (2027)"/>
+          <attvalue for="target_label" value="DR150 (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="202" source="VSTROM 160 (2027)" target="PULSAR N160 (2026)" weight="0.4067">
+        <viz:color r="164" g="219" b="204"/>
+        <attvalues>
+          <attvalue for="source_label" value="VSTROM 160 (2027)"/>
+          <attvalue for="target_label" value="PULSAR N160 (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="203" source="VSTROM 160 (2027)" target="PULSAR N125 (2026)" weight="0.3566">
+        <viz:color r="181" g="225" b="215"/>
+        <attvalues>
+          <attvalue for="source_label" value="VSTROM 160 (2027)"/>
+          <attvalue for="target_label" value="PULSAR N125 (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="204" source="VSTROM 160 (2027)" target="RAZZER GTR 220 R (2026)" weight="0.3504">
+        <viz:color r="183" g="226" b="216"/>
+        <attvalues>
+          <attvalue for="source_label" value="VSTROM 160 (2027)"/>
+          <attvalue for="target_label" value="RAZZER GTR 220 R (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="205" source="VSTROM 160 (2026)" target="VSTROM 160 (2027)">
+        <viz:color r="0" g="109" b="44"/>
+        <attvalues>
+          <attvalue for="source_label" value="VSTROM 160 (2026)"/>
+          <attvalue for="target_label" value="VSTROM 160 (2027)"/>
+        </attvalues>
+      </edge>
+      <edge id="206" source="VSTROM 160 (2026)" target="DR150 (2026)" weight="0.4664">
+        <viz:color r="144" g="211" b="191"/>
+        <attvalues>
+          <attvalue for="source_label" value="VSTROM 160 (2026)"/>
+          <attvalue for="target_label" value="DR150 (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="207" source="VSTROM 160 (2026)" target="PULSAR N160 (2026)" weight="0.4067">
+        <viz:color r="164" g="219" b="204"/>
+        <attvalues>
+          <attvalue for="source_label" value="VSTROM 160 (2026)"/>
+          <attvalue for="target_label" value="PULSAR N160 (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="208" source="VSTROM 160 (2026)" target="PULSAR N125 (2026)" weight="0.3566">
+        <viz:color r="181" g="225" b="215"/>
+        <attvalues>
+          <attvalue for="source_label" value="VSTROM 160 (2026)"/>
+          <attvalue for="target_label" value="PULSAR N125 (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="209" source="VSTROM 160 (2026)" target="RAZZER GTR 220 R (2026)" weight="0.3504">
+        <viz:color r="183" g="226" b="216"/>
+        <attvalues>
+          <attvalue for="source_label" value="VSTROM 160 (2026)"/>
+          <attvalue for="target_label" value="RAZZER GTR 220 R (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="210" source="VSTROM 250 SX (2026)" target="GIXXER SF 250 (2026)" weight="0.5086">
+        <viz:color r="130" g="205" b="182"/>
+        <attvalues>
+          <attvalue for="source_label" value="VSTROM 250 SX (2026)"/>
+          <attvalue for="target_label" value="GIXXER SF 250 (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="211" source="VSTROM 250 SX (2026)" target="GIXXER 250 (2026)" weight="0.4981">
+        <viz:color r="134" g="206" b="184"/>
+        <attvalues>
+          <attvalue for="source_label" value="VSTROM 250 SX (2026)"/>
+          <attvalue for="target_label" value="GIXXER 250 (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="212" source="VSTROM 250 SX (2026)" target="PULSAR N250 CARB (2026)" weight="0.4656">
+        <viz:color r="144" g="211" b="191"/>
+        <attvalues>
+          <attvalue for="source_label" value="VSTROM 250 SX (2026)"/>
+          <attvalue for="target_label" value="PULSAR N250 CARB (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="213" source="VSTROM 250 SX (2026)" target="NORDICA 300 (2026)" weight="0.4368">
+        <viz:color r="154" g="215" b="197"/>
+        <attvalues>
+          <attvalue for="source_label" value="VSTROM 250 SX (2026)"/>
+          <attvalue for="target_label" value="NORDICA 300 (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="214" source="VSTROM 250 SX (2026)" target="SNAKE GT TRAIL 250 RR (2026)" weight="0.3665">
+        <viz:color r="177" g="224" b="212"/>
+        <attvalues>
+          <attvalue for="source_label" value="VSTROM 250 SX (2026)"/>
+          <attvalue for="target_label" value="SNAKE GT TRAIL 250 RR (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="215" source="PULSAR N160 (2026)" target="DR150 (2026)" weight="0.4704">
+        <viz:color r="143" g="210" b="190"/>
+        <attvalues>
+          <attvalue for="source_label" value="PULSAR N160 (2026)"/>
+          <attvalue for="target_label" value="DR150 (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="216" source="PULSAR N160 (2026)" target="RUBAK EVO TRAIL 220R (2026)" weight="0.4109">
+        <viz:color r="163" g="218" b="203"/>
+        <attvalues>
+          <attvalue for="source_label" value="PULSAR N160 (2026)"/>
+          <attvalue for="target_label" value="RUBAK EVO TRAIL 220R (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="217" source="PULSAR N160 (2026)" target="VSTROM 160 (2026)" weight="0.4067">
+        <viz:color r="164" g="219" b="204"/>
+        <attvalues>
+          <attvalue for="source_label" value="PULSAR N160 (2026)"/>
+          <attvalue for="target_label" value="VSTROM 160 (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="218" source="PULSAR N160 (2026)" target="VSTROM 160 (2027)" weight="0.4067">
+        <viz:color r="164" g="219" b="204"/>
+        <attvalues>
+          <attvalue for="source_label" value="PULSAR N160 (2026)"/>
+          <attvalue for="target_label" value="VSTROM 160 (2027)"/>
+        </attvalues>
+      </edge>
+      <edge id="219" source="PULSAR N160 (2026)" target="DEUS EVO SPORT 150R (2026)" weight="0.3882">
+        <viz:color r="170" g="221" b="208"/>
+        <attvalues>
+          <attvalue for="source_label" value="PULSAR N160 (2026)"/>
+          <attvalue for="target_label" value="DEUS EVO SPORT 150R (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="220" source="PULSAR NS 400Z (2026)" target="TEKKEN 300 PE (2026)" weight="0.238">
+        <viz:color r="220" g="241" b="240"/>
+        <attvalues>
+          <attvalue for="source_label" value="PULSAR NS 400Z (2026)"/>
+          <attvalue for="target_label" value="TEKKEN 300 PE (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="221" source="PULSAR NS 400Z (2026)" target="GIXXER 250 (2026)" weight="0.2197">
+        <viz:color r="226" g="243" b="244"/>
+        <attvalues>
+          <attvalue for="source_label" value="PULSAR NS 400Z (2026)"/>
+          <attvalue for="target_label" value="GIXXER 250 (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="222" source="PULSAR NS 400Z (2026)" target="GIXXER SF 250 (2026)" weight="0.2181">
+        <viz:color r="227" g="244" b="244"/>
+        <attvalues>
+          <attvalue for="source_label" value="PULSAR NS 400Z (2026)"/>
+          <attvalue for="target_label" value="GIXXER SF 250 (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="223" source="PULSAR NS 400Z (2026)" target="NORDICA 300 (2026)" weight="0.2181">
+        <viz:color r="227" g="244" b="244"/>
+        <attvalues>
+          <attvalue for="source_label" value="PULSAR NS 400Z (2026)"/>
+          <attvalue for="target_label" value="NORDICA 300 (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="224" source="PULSAR NS 400Z (2026)" target="VSTROM 250 SX (2026)" weight="0.2083">
+        <viz:color r="230" g="245" b="246"/>
+        <attvalues>
+          <attvalue for="source_label" value="PULSAR NS 400Z (2026)"/>
+          <attvalue for="target_label" value="VSTROM 250 SX (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="225" source="PULSAR N250 FI (2026)" target="PULSAR N250 CARB (2026)" weight="0.5315">
+        <viz:color r="123" g="202" b="177"/>
+        <attvalues>
+          <attvalue for="source_label" value="PULSAR N250 FI (2026)"/>
+          <attvalue for="target_label" value="PULSAR N250 CARB (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="226" source="PULSAR N250 FI (2026)" target="SNAKE GT TRAIL 250 RR (2026)" weight="0.4442">
+        <viz:color r="152" g="214" b="196"/>
+        <attvalues>
+          <attvalue for="source_label" value="PULSAR N250 FI (2026)"/>
+          <attvalue for="target_label" value="SNAKE GT TRAIL 250 RR (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="227" source="PULSAR N250 FI (2026)" target="RAZZER GTR 220 R (2026)" weight="0.3608">
+        <viz:color r="179" g="225" b="214"/>
+        <attvalues>
+          <attvalue for="source_label" value="PULSAR N250 FI (2026)"/>
+          <attvalue for="target_label" value="RAZZER GTR 220 R (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="228" source="PULSAR N250 FI (2026)" target="VSTROM 250 SX (2026)" weight="0.3421">
+        <viz:color r="186" g="227" b="218"/>
+        <attvalues>
+          <attvalue for="source_label" value="PULSAR N250 FI (2026)"/>
+          <attvalue for="target_label" value="VSTROM 250 SX (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="229" source="PULSAR N250 FI (2026)" target="GIXXER 250 (2026)" weight="0.3399">
+        <viz:color r="186" g="227" b="218"/>
+        <attvalues>
+          <attvalue for="source_label" value="PULSAR N250 FI (2026)"/>
+          <attvalue for="target_label" value="GIXXER 250 (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="230" source="NORDICA 300 (2026)" target="VSTROM 250 SX (2026)" weight="0.4368">
+        <viz:color r="154" g="215" b="197"/>
+        <attvalues>
+          <attvalue for="source_label" value="NORDICA 300 (2026)"/>
+          <attvalue for="target_label" value="VSTROM 250 SX (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="231" source="NORDICA 300 (2026)" target="GIXXER SF 250 (2026)" weight="0.3833">
+        <viz:color r="172" g="222" b="209"/>
+        <attvalues>
+          <attvalue for="source_label" value="NORDICA 300 (2026)"/>
+          <attvalue for="target_label" value="GIXXER SF 250 (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="232" source="NORDICA 300 (2026)" target="DRS PERFORMANCE 300 (2026)" weight="0.3599">
+        <viz:color r="180" g="225" b="214"/>
+        <attvalues>
+          <attvalue for="source_label" value="NORDICA 300 (2026)"/>
+          <attvalue for="target_label" value="DRS PERFORMANCE 300 (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="233" source="NORDICA 300 (2026)" target="GIXXER 250 (2026)" weight="0.3574">
+        <viz:color r="180" g="225" b="214"/>
+        <attvalues>
+          <attvalue for="source_label" value="NORDICA 300 (2026)"/>
+          <attvalue for="target_label" value="GIXXER 250 (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="234" source="NORDICA 300 (2026)" target="TEKKEN 300 PE (2026)" weight="0.342">
+        <viz:color r="186" g="227" b="218"/>
+        <attvalues>
+          <attvalue for="source_label" value="NORDICA 300 (2026)"/>
+          <attvalue for="target_label" value="TEKKEN 300 PE (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="235" source="DEUS EVO SPORT 150R (2026)" target="REVENGE DYNAMIK 220 R (2026)" weight="0.3953">
+        <viz:color r="168" g="220" b="206"/>
+        <attvalues>
+          <attvalue for="source_label" value="DEUS EVO SPORT 150R (2026)"/>
+          <attvalue for="target_label" value="REVENGE DYNAMIK 220 R (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="236" source="DEUS EVO SPORT 150R (2026)" target="PULSAR N160 (2026)" weight="0.3882">
+        <viz:color r="170" g="221" b="208"/>
+        <attvalues>
+          <attvalue for="source_label" value="DEUS EVO SPORT 150R (2026)"/>
+          <attvalue for="target_label" value="PULSAR N160 (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="237" source="DEUS EVO SPORT 150R (2026)" target="RUBAK EVO TRAIL 220R (2026)" weight="0.367">
+        <viz:color r="177" g="224" b="212"/>
+        <attvalues>
+          <attvalue for="source_label" value="DEUS EVO SPORT 150R (2026)"/>
+          <attvalue for="target_label" value="RUBAK EVO TRAIL 220R (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="238" source="DEUS EVO SPORT 150R (2026)" target="RAZZER GTR 220 R (2026)" weight="0.3301">
+        <viz:color r="190" g="229" b="220"/>
+        <attvalues>
+          <attvalue for="source_label" value="DEUS EVO SPORT 150R (2026)"/>
+          <attvalue for="target_label" value="RAZZER GTR 220 R (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="239" source="DEUS EVO SPORT 150R (2026)" target="DR150 (2026)" weight="0.3085">
+        <viz:color r="197" g="232" b="225"/>
+        <attvalues>
+          <attvalue for="source_label" value="DEUS EVO SPORT 150R (2026)"/>
+          <attvalue for="target_label" value="DR150 (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="240" source="RUBAK EVO TRAIL 220R (2026)" target="REVENGE DYNAMIK 220 R (2026)" weight="0.4372">
+        <viz:color r="154" g="214" b="197"/>
+        <attvalues>
+          <attvalue for="source_label" value="RUBAK EVO TRAIL 220R (2026)"/>
+          <attvalue for="target_label" value="REVENGE DYNAMIK 220 R (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="241" source="RUBAK EVO TRAIL 220R (2026)" target="TEKKEN 250 R (2026)" weight="0.4314">
+        <viz:color r="156" g="215" b="199"/>
+        <attvalues>
+          <attvalue for="source_label" value="RUBAK EVO TRAIL 220R (2026)"/>
+          <attvalue for="target_label" value="TEKKEN 250 R (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="242" source="RUBAK EVO TRAIL 220R (2026)" target="SUPER 7 PE 250 (2026)" weight="0.4204">
+        <viz:color r="160" g="217" b="201"/>
+        <attvalues>
+          <attvalue for="source_label" value="RUBAK EVO TRAIL 220R (2026)"/>
+          <attvalue for="target_label" value="SUPER 7 PE 250 (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="243" source="RUBAK EVO TRAIL 220R (2026)" target="PULSAR N160 (2026)" weight="0.4109">
+        <viz:color r="163" g="218" b="203"/>
+        <attvalues>
+          <attvalue for="source_label" value="RUBAK EVO TRAIL 220R (2026)"/>
+          <attvalue for="target_label" value="PULSAR N160 (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="244" source="RUBAK EVO TRAIL 220R (2026)" target="RAZZER GTR 220 R (2026)" weight="0.3999">
+        <viz:color r="166" g="219" b="205"/>
+        <attvalues>
+          <attvalue for="source_label" value="RUBAK EVO TRAIL 220R (2026)"/>
+          <attvalue for="target_label" value="RAZZER GTR 220 R (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="245" source="DRS PERFORMANCE 300 (2026)" target="TEKKEN 300 PE (2026)" weight="0.4128">
+        <viz:color r="162" g="218" b="203"/>
+        <attvalues>
+          <attvalue for="source_label" value="DRS PERFORMANCE 300 (2026)"/>
+          <attvalue for="target_label" value="TEKKEN 300 PE (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="246" source="DRS PERFORMANCE 300 (2026)" target="TEKKEN 250 R (2026)" weight="0.3874">
+        <viz:color r="170" g="221" b="208"/>
+        <attvalues>
+          <attvalue for="source_label" value="DRS PERFORMANCE 300 (2026)"/>
+          <attvalue for="target_label" value="TEKKEN 250 R (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="247" source="DRS PERFORMANCE 300 (2026)" target="NORDICA 300 (2026)" weight="0.3599">
+        <viz:color r="180" g="225" b="214"/>
+        <attvalues>
+          <attvalue for="source_label" value="DRS PERFORMANCE 300 (2026)"/>
+          <attvalue for="target_label" value="NORDICA 300 (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="248" source="DRS PERFORMANCE 300 (2026)" target="VSTROM 250 SX (2026)" weight="0.3388">
+        <viz:color r="187" g="228" b="218"/>
+        <attvalues>
+          <attvalue for="source_label" value="DRS PERFORMANCE 300 (2026)"/>
+          <attvalue for="target_label" value="VSTROM 250 SX (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="249" source="DRS PERFORMANCE 300 (2026)" target="SUPER 7 PE 250 (2026)" weight="0.3282">
+        <viz:color r="190" g="229" b="221"/>
+        <attvalues>
+          <attvalue for="source_label" value="DRS PERFORMANCE 300 (2026)"/>
+          <attvalue for="target_label" value="SUPER 7 PE 250 (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="250" source="RX 175 GT LINE (2026)" target="THYRON EVO SPORT 200 R (2026)" weight="0.333">
+        <viz:color r="189" g="228" b="220"/>
+        <attvalues>
+          <attvalue for="source_label" value="RX 175 GT LINE (2026)"/>
+          <attvalue for="target_label" value="THYRON EVO SPORT 200 R (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="251" source="RX 175 GT LINE (2026)" target="QUAD XL FORCE 200 R (2026)" weight="0.2671">
+        <viz:color r="211" g="237" b="234"/>
+        <attvalues>
+          <attvalue for="source_label" value="RX 175 GT LINE (2026)"/>
+          <attvalue for="target_label" value="QUAD XL FORCE 200 R (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="252" source="RX 175 GT LINE (2026)" target="PULSAR N160 (2026)" weight="0.264">
+        <viz:color r="212" g="238" b="234"/>
+        <attvalues>
+          <attvalue for="source_label" value="RX 175 GT LINE (2026)"/>
+          <attvalue for="target_label" value="PULSAR N160 (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="253" source="RX 175 GT LINE (2026)" target="REVENGE DYNAMIK 220 R (2026)" weight="0.2591">
+        <viz:color r="213" g="238" b="235"/>
+        <attvalues>
+          <attvalue for="source_label" value="RX 175 GT LINE (2026)"/>
+          <attvalue for="target_label" value="REVENGE DYNAMIK 220 R (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="254" source="RX 175 GT LINE (2026)" target="PULSAR N125 (2026)" weight="0.2588">
+        <viz:color r="213" g="238" b="236"/>
+        <attvalues>
+          <attvalue for="source_label" value="RX 175 GT LINE (2026)"/>
+          <attvalue for="target_label" value="PULSAR N125 (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="255" source="SUPER 7 PE 250 (2026)" target="TEKKEN 250 R (2026)" weight="0.5446">
+        <viz:color r="118" g="200" b="174"/>
+        <attvalues>
+          <attvalue for="source_label" value="SUPER 7 PE 250 (2026)"/>
+          <attvalue for="target_label" value="TEKKEN 250 R (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="256" source="SUPER 7 PE 250 (2026)" target="RUBAK EVO TRAIL 220R (2026)" weight="0.4204">
+        <viz:color r="160" g="217" b="201"/>
+        <attvalues>
+          <attvalue for="source_label" value="SUPER 7 PE 250 (2026)"/>
+          <attvalue for="target_label" value="RUBAK EVO TRAIL 220R (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="257" source="SUPER 7 PE 250 (2026)" target="REVENGE DYNAMIK 220 R (2026)" weight="0.3922">
+        <viz:color r="169" g="220" b="207"/>
+        <attvalues>
+          <attvalue for="source_label" value="SUPER 7 PE 250 (2026)"/>
+          <attvalue for="target_label" value="REVENGE DYNAMIK 220 R (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="258" source="SUPER 7 PE 250 (2026)" target="XEVERUS EVO ADVENTURE 330 R (2026)" weight="0.3586">
+        <viz:color r="180" g="225" b="214"/>
+        <attvalues>
+          <attvalue for="source_label" value="SUPER 7 PE 250 (2026)"/>
+          <attvalue for="target_label" value="XEVERUS EVO ADVENTURE 330 R (2026)"/>
+        </attvalues>
+      </edge>
+      <edge id="259" source="SUPER 7 PE 250 (2026)" target="VSTROM 250 SX (2026)" weight="0.3452">
+        <viz:color r="185" g="227" b="217"/>
+        <attvalues>
+          <attvalue for="source_label" value="SUPER 7 PE 250 (2026)"/>
+          <attvalue for="target_label" value="VSTROM 250 SX (2026)"/>
+        </attvalues>
+      </edge>
+    </edges>
+  </graph>
+</gexf>
